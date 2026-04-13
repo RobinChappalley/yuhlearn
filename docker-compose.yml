@@ -1,0 +1,16 @@
+services:
+  frontend:
+    image: ghcr.io/robinchappalley/yuhlearn-frontend:latest
+    container_name: yuhlearn-frontend
+    restart: unless-stopped
+    expose:
+      - "80"
+    environment:
+      - VIRTUAL_HOST=yuhlearn.ch
+      - LETSENCRYPT_HOST=yuhlearn.ch
+    networks:
+      - web-network
+
+networks:
+  web-network:
+    external: true

@@ -18,6 +18,16 @@ jobs:
         run: |
           docker build -t ghcr.io/robinchappalley/yuhlearn-frontend:latest ./apps/frontend
           docker push ghcr.io/robinchappalley/yuhlearn-frontend:latest
+      - name: Debug SSH connection
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > /tmp/key
+          chmod 600 /tmp/key
+          echo "=== Key line count ==="
+          wc -l /tmp/key
+          echo "=== SSH verbose ==="
+          ssh -vvv -i /tmp/key -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "echo OK" 2>&1 | grep -v "identity file"
+          rm /tmp/key
+
 
       - name: Copy docker-compose to VPS
         uses: appleboy/scp-action@v0.1.7

@@ -19,7 +19,7 @@ jobs:
           docker build -t ghcr.io/robinchappalley/yuhlearn-frontend:latest ./apps/frontend
           docker push ghcr.io/robinchappalley/yuhlearn-frontend:latest
 
-            - name: Copy docker-compose to VPS
+      - name: Copy docker-compose to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.VPS_HOST }}

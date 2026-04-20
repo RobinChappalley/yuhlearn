@@ -1,0 +1,38 @@
+# Windsurf Rules — YuhLearn
+
+## Stack
+- Vue 3, Composition API, <script setup>
+- JavaScript (pas TypeScript)
+- Vue Router 4
+- Composables uniquement (pas Pinia)
+- CSS vanilla avec <style scoped> + variables CSS depuis DesignBridge.md
+- Vite comme bundler
+- Pas de Tailwind, pas de CSS framework externe
+- Pas de tests
+
+## Structure projet
+src/
+  assets/
+  components/       # composants réutilisables
+  composables/      # useGoal, useProgress, useFirst...
+  data/             # JSON statiques (firsts, questions, mock yuh)
+  router/
+  views/            # une view par écran
+  App.vue
+
+## Règles de code
+- Toujours utiliser les tokens CSS définis dans DesignBridge.md (via var(--...))
+- Composants atomiques : 1 responsabilité, 1 fichier
+- Persistance : localStorage uniquement
+- Pas d'appels réseau réels sauf YouTube embed (IFrame API)
+- L'API Yuh est entièrement mockée via src/data/yuh-mock.json
+- Toutes les vidéos sont des embeds YouTube (unlisted ou placeholder publics)
+- Langue de l'interface : anglais uniquement
+- Mobile-first : largeur de référence 390px, pas de layout desktop à prévoir
+
+## Comportement attendu
+- Avant de coder un écran, lire SCREENS.md section correspondante
+- Respecter DATA_MODEL.md pour toutes les structures de données
+- Respecter PLAN.md pour l'ordre d'exécution
+- Chaque décision non documentée → l'écrire dans DECISIONS.md
+- Ne jamais inventer une couleur, une taille ou une typo non présente dans DesignBridge.md

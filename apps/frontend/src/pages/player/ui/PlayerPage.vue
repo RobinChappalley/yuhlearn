@@ -1,120 +1,96 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useProgress } from '@/entities/progress'
 import { YoutubePlayer } from '@/widgets/youtube-player'
-import { VideoOverlay } from '@/widgets/video-overlay'
 import firsts from '@/data/firsts.json'
 
 const route = useRoute()
 const router = useRouter()
-const { markTileComplete } = useProgress()
 
 const first = computed(() => firsts.firsts.find((f) => f.id === route.params.id) ?? null)
-const videos = computed(() => first.value?.videos ?? [])
-
-const currentIndex = computed(() =>
-  videos.value.findIndex((v) => v.id === route.params.tileId),
-)
-const currentVideo = computed(() => videos.value[currentIndex.value] ?? null)
-
-const showToast = ref(false)
-
-function onVideoEnded() {
-  if (!first.value || !currentVideo.value) return
-  markTileComplete(first.value.id, currentVideo.value.id)
-
-  const isLast = currentIndex.value === videos.value.length - 1
-  if (isLast) {
-    showToast.value = true
-    setTimeout(() => {
-      showToast.value = false
-    }, 3000)
-  } else {
-    goNext()
-  }
-}
-
-function goNext() {
-  const next = videos.value[currentIndex.value + 1]
-  if (next) {
-    router.replace({ name: 'video-player', params: { id: first.value.id, tileId: next.id } })
-  }
-}
-
-function goPrev() {
-  const prev = videos.value[currentIndex.value - 1]
-  if (prev) {
-    router.replace({ name: 'video-player', params: { id: first.value.id, tileId: prev.id } })
-  }
-}
-
-function goBack() {
-  router.push({ name: 'first-detail', params: { id: first.value.id } })
-}
+const videos = computed(() => first.value?.videos.filter((v) => v.youtubeId) ?? [])
 </script>
 
 <template>
   <div class="player">
-    <YoutubePlayer
-      v-if="currentVideo"
-      :video-id="currentVideo.youtubeId"
-      :autoplay="true"
-      @ended="onVideoEnded"
-    />
+    <button class="player__back" @click="router.push({ name: 'first-detail', params: { id: route.params.id } })">←</button>
 
-    <VideoOverlay
-      v-if="currentVideo && first"
-      :title="currentVideo.title"
-      :first-title="first.title"
-      :has-prev="currentIndex > 0"
-      :has-next="currentIndex < videos.length - 1"
-      @back="goBack"
-      @prev="goPrev"
-      @next="goNext"
-    />
-
-    <Transition name="toast">
-      <div v-if="showToast" class="player__toast">
-        Test unlocked 🎉
+    <div class="player__feed">
+      <div v-for="video in videos" :key="video.id" class="player__item">
+        <YoutubePlayer :video-id="video.youtubeId" />
+        <div class="player__item-info">
+          <p class="player__item-first">{{ first?.title }}</p>
+          <p class="player__item-title">{{ video.title }}</p>
+        </div>
       </div>
-    </Transition>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .player {
-  position: fixed;
-  inset: 0;
+  height: 100dvh;
   background: #000;
+  overflow: hidden;
+}
+
+.player__back {
+  position: fixed;
+  top: calc(env(safe-area-inset-top) + 16px);
+  left: 16px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(4px);
 }
 
-.player__toast {
+.player__feed {
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+
+.player__feed::-webkit-scrollbar {
+  display: none;
+}
+
+.player__item {
+  position: relative;
+  height: 100dvh;
+  scroll-snap-align: start;
+}
+
+.player__item-info {
   position: absolute;
-  bottom: var(--space-10);
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--color-swiss-orange);
-  color: var(--color-swiss-white);
-  font-size: var(--font-size-body-big);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-6) var(--space-5);
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  pointer-events: none;
+}
+
+.player__item-first {
+  font-size: var(--font-size-small);
   font-weight: 600;
-  padding: var(--space-3) var(--space-6);
-  border-radius: 99px;
-  white-space: nowrap;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  color: rgba(255,255,255,0.7);
+  margin: 0 0 var(--space-1);
 }
 
-.toast-enter-active,
-.toast-leave-active {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.toast-enter-from,
-.toast-leave-to {
-  opacity: 0;
-  transform: translateX(-50%) translateY(12px);
+.player__item-title {
+  font-size: var(--font-size-title-xs);
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
 }
 </style>

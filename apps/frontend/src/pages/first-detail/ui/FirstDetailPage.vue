@@ -28,7 +28,7 @@ function handleTileTap(tile) {
     router.push({ name: 'quiz', params: { id: first.value.id } })
   } else {
     if (isTileLocked(first.value.id, tile.id)) return
-    router.push({ name: 'video-player', params: { id: first.value.id, tileId: tile.id } })
+    router.push({ name: 'video-player', params: { id: first.value.id, tileId: tile.id || 'feed' } })
   }
 }
 </script>

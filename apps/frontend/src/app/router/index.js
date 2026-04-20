@@ -6,6 +6,26 @@ const routes = [
     name: 'home',
     component: () => import('@/pages/home/ui/HomePage.vue'),
   },
+  {
+    path: '/first/:id',
+    name: 'first-detail',
+    component: () => import('@/pages/first-detail/ui/FirstDetailPage.vue'),
+  },
+  {
+    path: '/first/:id/video/:tileId',
+    name: 'video-player',
+    component: () => import('@/pages/player/ui/PlayerPage.vue'),
+  },
+  {
+    path: '/first/:id/quiz',
+    name: 'quiz',
+    component: () => import('@/pages/quiz/ui/QuizPage.vue'),
+  },
+  {
+    path: '/first/:id/reward',
+    name: 'reward',
+    component: () => import('@/pages/reward/ui/RewardPage.vue'),
+  },
 ]
 
 const router = createRouter({

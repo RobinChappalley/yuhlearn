@@ -1,3 +1,121 @@
+:root {
+  /* ── Core colours ── */
+  --color-swiss-black: #151a21;
+  --color-swiss-black-80: #44484d;
+  --color-swiss-black-60: #73767a;
+  --color-swiss-black-40: #a1a3a6;
+  --color-swiss-black-20: #d0d1d3;
+  --color-swiss-black-dark: #000000;
+  --color-swiss-white: #ffffff;
+
+  --color-swiss-orange: #fa5b35;
+  --color-swiss-orange-80: #fb7c5d;
+  --color-swiss-orange-60: #fc9d86;
+  --color-swiss-orange-40: #fdbdae;
+  --color-swiss-orange-20: #feded7;
+  --color-swiss-orange-dark1: #ae3b1b;
+  --color-swiss-orange-dark2: #5e1400;
+
+  /* ── Extended palette ── */
+  --color-swiss-lilac: #ebddf5;
+  --color-swiss-lilac-80: #efe4f7;
+  --color-swiss-lilac-60: #f3ebf9;
+  --color-swiss-lilac-40: #f7f1fb;
+  --color-swiss-lilac-20: #fbf8fd;
+  --color-swiss-lilac-dark1: #a49aab;
+  --color-swiss-lilac-dark2: #574365;
+
+  --color-swiss-dusk-pink: #fab4cc;
+  --color-swiss-dusk-pink-80: #fbc3d6;
+  --color-swiss-dusk-pink-60: #fcd2e0;
+  --color-swiss-dusk-pink-40: #fde1eb;
+  --color-swiss-dusk-pink-20: #fef0f5;
+  --color-swiss-dusk-pink-dark1: #ae7d8e;
+  --color-swiss-dusk-pink-dark2: #712f46;
+
+  --color-swiss-ice: #78c6e7;
+  --color-swiss-ice-80: #93d1ec;
+  --color-swiss-ice-60: #aeddf1;
+  --color-swiss-ice-40: #c9e8f5;
+  --color-swiss-ice-20: #e4f4fa;
+  --color-swiss-ice-dark1: #548ba3;
+  --color-swiss-ice-dark2: #104257;
+
+  --color-swiss-lavender: #ccb1da;
+  --color-swiss-lavender-80: #d6c1e1;
+  --color-swiss-lavender-60: #e0d0e9;
+  --color-swiss-lavender-40: #ebe0f0;
+  --color-swiss-lavender-20: #f5eff8;
+  --color-swiss-lavender-dark1: #8e7b98;
+  --color-swiss-lavender-dark2: #5b3d6b;
+
+  /* ── UI Exclusive ── */
+  --color-app-blue: #0a84ff;
+  --color-app-blue-80: #3b9dff;
+  --color-app-blue-60: #6cb5ff;
+  --color-app-blue-40: #9dceff;
+  --color-app-blue-20: #cee6ff;
+  --color-app-blue-dark1: #065cb2;
+  --color-app-blue-dark2: #002262;
+
+  --color-app-red: #e02020;
+  --color-app-red-80: #e64d4d;
+  --color-app-red-60: #ec7979;
+  --color-app-red-40: #f3a6a6;
+  --color-app-red-20: #f9d2d2;
+  --color-app-red-dark1: #9b1616;
+  --color-app-red-dark2: #540000;
+
+  --color-app-green: #02b089;
+  --color-app-green-80: #35c0a1;
+  --color-app-green-60: #67d0b8;
+  --color-app-green-40: #9adfd0;
+  --color-app-green-20: #ccefe7;
+  --color-app-green-dark1: #017a5f;
+  --color-app-green-dark2: #00382c;
+
+  --color-app-dark-grey: #8b8e92;
+  --color-medium-grey: #e9e7eb;
+  --color-light-grey: #f5f2f8;
+  --color-extra-light-grey: #f9f7fb;
+
+  /* ── Shadows ── */
+  --shadow-purple: 0px 4px 60px 6px #5743651a;
+
+  /* ── Typography — Proxima Soft (fallback système) ── */
+  --font-family: 'Proxima Soft', 'Avenir Next', 'Segoe UI', sans-serif;
+
+  --font-size-impact: 45px;   --line-height-impact: 50px;
+  --font-size-title-lg: 35px; --line-height-title-lg: 40px;
+  --font-size-title-md: 26px; --line-height-title-md: 32px;
+  --font-size-title-sm: 20px; --line-height-title-sm: 24px;
+  --font-size-title-xs: 17px; --line-height-title-xs: 20px;
+  --font-size-title-2xs: 14px; --line-height-title-2xs: 16px;
+
+  --font-size-subtitle1: 20px; --line-height-subtitle1: 24px;
+  --font-size-subtitle2: 17px; --line-height-subtitle2: 20px;
+  --font-size-body-big: 16px;  --line-height-body-big: 20px;
+  --font-size-body: 14px;      --line-height-body: 16px;
+  --font-size-small: 12px;     --line-height-small: 14px;
+  --font-size-caption: 11px;   --line-height-caption: 13px;
+  --font-size-tiny: 10px;      --line-height-tiny: 12px;
+
+  /* ── Spacing ── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ── Layout ── */
+  --max-width: 390px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -10,5 +128,10 @@ body,
 }
 
 body {
-  font-family: 'Avenir Next', 'Segoe UI', sans-serif;
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-swiss-black);
+  background-color: var(--color-extra-light-grey);
+  -webkit-font-smoothing: antialiased;
 }

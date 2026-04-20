@@ -3,6 +3,8 @@
     {
       "id": "first-budget",
       "level": "beginner",
+      "ageRange": "15-25",
+      "order": 1,
       "title": "First Budget",
       "description": "Learn how to take control of your money from day one.",
       "thumbnail": null,
@@ -12,21 +14,21 @@
           "id": "video-budget-1",
           "order": 1,
           "title": "What is a budget?",
-          "youtubeId": "sVKQn2I4HDM",
+          "youtubeId": "sOayvlewEss",
           "duration": 60
         },
         {
           "id": "video-budget-2",
           "order": 2,
           "title": "The 50/30/20 rule",
-          "youtubeId": "HQzoZfc3GwQ",
+          "youtubeId": "lrf5WpNl_s8",
           "duration": 75
         },
         {
           "id": "video-budget-3",
           "order": 3,
           "title": "Common money traps to avoid",
-          "youtubeId": "sVKQn2I4HDM",
+          "youtubeId": "ZoMtbX30EWM",
           "duration": 65
         }
       ],
@@ -119,6 +121,461 @@
             "correct": "b"
           }
         ]
+      },
+      "reward": {
+        "boostPercent": 0.5,
+        "boostDurationDays": 30,
+        "label": "0.5% bonus interest for 30 days"
+      }
+    },
+    {
+      "id": "first-payslip",
+      "level": "beginner",
+      "ageRange": "15-25",
+      "order": 2,
+      "title": "First Payslip",
+      "description": "Decode your first payslip and understand what you actually take home.",
+      "thumbnail": null,
+      "locked": true,
+      "videos": [
+        {
+          "id": "video-payslip-1",
+          "order": 1,
+          "title": "How to read your payslip",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-payslip-2",
+          "order": 2,
+          "title": "Gross vs net salary: what's the difference?",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-payslip-3",
+          "order": 3,
+          "title": "Social contributions: what are they for?",
+          "youtubeId": null,
+          "duration": null
+        }
+      ],
+      "quiz": {
+        "id": "quiz-payslip",
+        "passingScore": 100,
+        "questions": []
+      },
+      "reward": {
+        "boostPercent": 0.5,
+        "boostDurationDays": 30,
+        "label": "0.5% bonus interest for 30 days"
+      }
+    },
+    {
+      "id": "first-taxes",
+      "level": "beginner",
+      "ageRange": "15-25",
+      "order": 3,
+      "title": "First Taxes",
+      "description": "Understand the Swiss tax system and avoid nasty surprises.",
+      "thumbnail": null,
+      "locked": true,
+      "videos": [
+        {
+          "id": "video-taxes-1",
+          "order": 1,
+          "title": "The tax pyramid: federal, cantonal, municipal",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-taxes-2",
+          "order": 2,
+          "title": "Advance payments: how they work and how much to set aside",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-taxes-3",
+          "order": 3,
+          "title": "Possible deductions (and cantonal specifics)",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-taxes-4",
+          "order": 4,
+          "title": "What documents do you need for your tax return?",
+          "youtubeId": null,
+          "duration": null
+        }
+      ],
+      "quiz": {
+        "id": "quiz-taxes",
+        "passingScore": 100,
+        "questions": []
+      },
+      "reward": {
+        "boostPercent": 0.5,
+        "boostDurationDays": 30,
+        "label": "0.5% bonus interest for 30 days"
+      }
+    },
+    {
+      "id": "first-apartment",
+      "level": "beginner",
+      "ageRange": "15-25",
+      "order": 4,
+      "title": "First Apartment",
+      "description": "Everything you need to know before signing your first lease.",
+      "thumbnail": null,
+      "locked": true,
+      "videos": [
+        {
+          "id": "video-apartment-1",
+          "order": 1,
+          "title": "How much rent can you actually afford?",
+          "youtubeId": null,
+          "duration": null,
+          "host": "Fin"
+        },
+        {
+          "id": "video-apartment-2",
+          "order": 2,
+          "title": "The security deposit: guarantor or SwissCaution?",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-apartment-3",
+          "order": 3,
+          "title": "Home liability insurance: what it is and why you need it",
+          "youtubeId": null,
+          "duration": null
+        }
+      ],
+      "quiz": {
+        "id": "quiz-apartment",
+        "passingScore": 100,
+        "questions": []
+      },
+      "reward": {
+        "boostPercent": 0.5,
+        "boostDurationDays": 30,
+        "label": "0.5% bonus interest for 30 days"
+      }
+    },
+    {
+      "id": "first-car",
+      "level": "beginner",
+      "ageRange": "15-25",
+      "order": 5,
+      "title": "First Car",
+      "description": "The real cost of owning a car — way beyond the sticker price.",
+      "thumbnail": null,
+      "locked": true,
+      "videos": [
+        {
+          "id": "video-car-1",
+          "order": 1,
+          "title": "All the costs around a car: insurance, maintenance, plates, inspection",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-car-2",
+          "order": 2,
+          "title": "Leasing vs buying: which is right for you?",
+          "youtubeId": null,
+          "duration": null
+        }
+      ],
+      "quiz": {
+        "id": "quiz-car",
+        "passingScore": 100,
+        "questions": []
+      },
+      "reward": {
+        "boostPercent": 0.5,
+        "boostDurationDays": 30,
+        "label": "0.5% bonus interest for 30 days"
+      }
+    },
+    {
+      "id": "first-investment",
+      "level": "beginner",
+      "ageRange": "15-25",
+      "order": 6,
+      "title": "First Investment",
+      "description": "Understand the markets and make your money work for you.",
+      "thumbnail": null,
+      "locked": true,
+      "videos": [
+        {
+          "id": "video-investment-1",
+          "order": 1,
+          "title": "The stock market ecosystem explained simply",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-investment-2",
+          "order": 2,
+          "title": "Stocks: what they are, how to buy, rights and risks",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-investment-3",
+          "order": 3,
+          "title": "Bonds: how they work and why they matter",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-investment-4",
+          "order": 4,
+          "title": "Investment funds: the basics",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-investment-5",
+          "order": 5,
+          "title": "ETFs: the beginner's best friend",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-investment-6",
+          "order": 6,
+          "title": "Cryptocurrencies: opportunities and dangers",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-investment-7",
+          "order": 7,
+          "title": "How to choose your investments",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-investment-8",
+          "order": 8,
+          "title": "How to declare your investments on your tax return",
+          "youtubeId": null,
+          "duration": null
+        }
+      ],
+      "quiz": {
+        "id": "quiz-investment",
+        "passingScore": 100,
+        "questions": []
+      },
+      "reward": {
+        "boostPercent": 0.5,
+        "boostDurationDays": 30,
+        "label": "0.5% bonus interest for 30 days"
+      }
+    },
+    {
+      "id": "first-credit",
+      "level": "beginner",
+      "ageRange": "15-25",
+      "order": 7,
+      "title": "First Credit",
+      "description": "Understand the traps of credit before they catch up with you.",
+      "thumbnail": null,
+      "locked": true,
+      "videos": [
+        {
+          "id": "video-credit-1",
+          "order": 1,
+          "title": "Consumer credit vs leasing: the real differences",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-credit-2",
+          "order": 2,
+          "title": "Debit card vs credit card: how do they actually work?",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-credit-3",
+          "order": 3,
+          "title": "Why you should avoid paying in instalments",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-credit-4",
+          "order": 4,
+          "title": "How to recognize when you're in financial trouble",
+          "youtubeId": null,
+          "duration": null
+        },
+        {
+          "id": "video-credit-5",
+          "order": 5,
+          "title": "How to get back on track: repay, adjust, get help",
+          "youtubeId": null,
+          "duration": null
+        }
+      ],
+      "quiz": {
+        "id": "quiz-credit",
+        "passingScore": 100,
+        "questions": []
+      },
+      "reward": {
+        "boostPercent": 0.5,
+        "boostDurationDays": 30,
+        "label": "0.5% bonus interest for 30 days"
+      }
+    },
+    {
+      "id": "first-property",
+      "level": "intermediate",
+      "ageRange": "25-35",
+      "order": 8,
+      "title": "First Property",
+      "description": "Becoming a homeowner in Switzerland: what you really need to know.",
+      "thumbnail": null,
+      "locked": true,
+      "videos": [],
+      "quiz": {
+        "id": "quiz-property",
+        "passingScore": 100,
+        "questions": []
+      },
+      "reward": {
+        "boostPercent": 0.5,
+        "boostDurationDays": 30,
+        "label": "0.5% bonus interest for 30 days"
+      }
+    },
+    {
+      "id": "first-child",
+      "level": "intermediate",
+      "ageRange": "25-35",
+      "order": 9,
+      "title": "First Child",
+      "description": "The financial implications of welcoming a child.",
+      "thumbnail": null,
+      "locked": true,
+      "videos": [],
+      "quiz": {
+        "id": "quiz-child",
+        "passingScore": 100,
+        "questions": []
+      },
+      "reward": {
+        "boostPercent": 0.5,
+        "boostDurationDays": 30,
+        "label": "0.5% bonus interest for 30 days"
+      }
+    },
+    {
+      "id": "first-business",
+      "level": "intermediate",
+      "ageRange": "25-35",
+      "order": 10,
+      "title": "First Business",
+      "description": "Launch your activity without making costly financial mistakes.",
+      "thumbnail": null,
+      "locked": true,
+      "videos": [],
+      "quiz": {
+        "id": "quiz-business",
+        "passingScore": 100,
+        "questions": []
+      },
+      "reward": {
+        "boostPercent": 0.5,
+        "boostDurationDays": 30,
+        "label": "0.5% bonus interest for 30 days"
+      }
+    },
+    {
+      "id": "first-pension",
+      "level": "intermediate",
+      "ageRange": "25-35",
+      "order": 11,
+      "title": "First Pension Reflection",
+      "description": "Understand the second pillar before it's too late to act.",
+      "thumbnail": null,
+      "locked": true,
+      "videos": [],
+      "quiz": {
+        "id": "quiz-pension",
+        "passingScore": 100,
+        "questions": []
+      },
+      "reward": {
+        "boostPercent": 0.5,
+        "boostDurationDays": 30,
+        "label": "0.5% bonus interest for 30 days"
+      }
+    },
+    {
+      "id": "first-advanced-investing",
+      "level": "intermediate",
+      "ageRange": "25-35",
+      "order": 12,
+      "title": "Advanced Investing",
+      "description": "Go beyond ETFs: strategies and tax optimization.",
+      "thumbnail": null,
+      "locked": true,
+      "videos": [],
+      "quiz": {
+        "id": "quiz-advanced-investing",
+        "passingScore": 100,
+        "questions": []
+      },
+      "reward": {
+        "boostPercent": 0.5,
+        "boostDurationDays": 30,
+        "label": "0.5% bonus interest for 30 days"
+      }
+    },
+    {
+      "id": "first-expert-investing",
+      "level": "advanced",
+      "ageRange": "35+",
+      "order": 13,
+      "title": "Expert Investing",
+      "description": "Complex strategies to grow and protect your wealth.",
+      "thumbnail": null,
+      "locked": true,
+      "videos": [],
+      "quiz": {
+        "id": "quiz-expert-investing",
+        "passingScore": 100,
+        "questions": []
+      },
+      "reward": {
+        "boostPercent": 0.5,
+        "boostDurationDays": 30,
+        "label": "0.5% bonus interest for 30 days"
+      }
+    },
+    {
+      "id": "first-swissquote",
+      "level": "advanced",
+      "ageRange": "35+",
+      "order": 14,
+      "title": "Moving to Swissquote",
+      "description": "When and how to upgrade to a professional trading platform.",
+      "thumbnail": null,
+      "locked": true,
+      "videos": [],
+      "quiz": {
+        "id": "quiz-swissquote",
+        "passingScore": 100,
+        "questions": []
       },
       "reward": {
         "boostPercent": 0.5,

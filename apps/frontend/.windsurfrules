@@ -8,17 +8,36 @@
 - CSS vanilla avec <style scoped> + variables CSS depuis DesignBridge.md
 - Vite comme bundler
 - Pas de Tailwind, pas de CSS framework externe
-- Pas de tests
 
-## Structure projet
-src/
-  assets/
-  components/       # composants réutilisables
-  composables/      # useGoal, useProgress, useFirst...
-  data/             # JSON statiques (firsts, questions, mock yuh)
-  router/
-  views/            # une view par écran
-  App.vue
+## Architecture — Feature Sliced Design
+Le projet suit strictement la méthodologie FSD.
+Racine du code source : apps/frontend/src/
+
+Couches (dans l'ordre hiérarchique, de bas en haut) :
+  shared/       → utilitaires génériques, tokens CSS, helpers, rien de métier
+  entities/     → modèles métier purs : First, Video, Quiz, Question, Reward, UserProgress
+  features/     → cas d'usage isolés : watch-video, take-quiz, claim-reward, unlock-first
+  widgets/      → blocs d'UI composites : FirstCard, VideoPlayer, QuizBlock, RewardModal
+  pages/        → une page par écran Vue Router : HomePage, FirstDetailPage, PlayerPage, QuizPage, RewardPage
+  processes/    → flux multi-étapes : learning-flow (video → quiz → reward)
+  app/          → App.vue, providers, setup global
+  data/         → JSON statiques mockés (firsts.json, yuh-mock.json)
+  router/       → index.js, routes
+
+Règles FSD strictes :
+  - Une couche ne peut importer que depuis les couches en dessous d'elle
+  - shared n'importe rien d'interne
+  - entities n'importe que shared
+  - features n'importe que entities + shared
+  - widgets n'importe que features + entities + shared
+  - pages n'importe que widgets + features + entities + shared
+  - processes n'importe que pages + widgets + features + entities + shared
+  - Jamais d'import circulaire
+
+Structure interne de chaque slice (feature, entity, widget) :
+  ui/           → composants Vue
+  model/        → composables, logique, state
+  index.js      → public API de la slice (seul fichier importable de l'extérieur)
 
 ## Règles de code
 - Toujours utiliser les tokens CSS définis dans DesignBridge.md (via var(--...))
@@ -26,13 +45,13 @@ src/
 - Persistance : localStorage uniquement
 - Pas d'appels réseau réels sauf YouTube embed (IFrame API)
 - L'API Yuh est entièrement mockée via src/data/yuh-mock.json
-- Toutes les vidéos sont des embeds YouTube (unlisted ou placeholder publics)
+- Toutes les vidéos sont des embeds YouTube
 - Langue de l'interface : anglais uniquement
 - Mobile-first : largeur de référence 390px, pas de layout desktop à prévoir
 
 ## Comportement attendu
-- Avant de coder un écran, lire SCREENS.md section correspondante
+- Avant de coder un écran, lire SCREENS.MD section correspondante
 - Respecter DATA_MODEL.md pour toutes les structures de données
-- Respecter PLAN.md pour l'ordre d'exécution
+- Respecter PLAN.MD pour l'ordre d'exécution
 - Chaque décision non documentée → l'écrire dans DECISIONS.md
 - Ne jamais inventer une couleur, une taille ou une typo non présente dans DesignBridge.md

@@ -1,0 +1,130 @@
+{
+  "firsts": [
+    {
+      "id": "first-budget",
+      "level": "beginner",
+      "title": "First Budget",
+      "description": "Learn how to take control of your money from day one.",
+      "thumbnail": null,
+      "locked": false,
+      "videos": [
+        {
+          "id": "video-budget-1",
+          "order": 1,
+          "title": "What is a budget?",
+          "youtubeId": "sVKQn2I4HDM",
+          "duration": 60
+        },
+        {
+          "id": "video-budget-2",
+          "order": 2,
+          "title": "The 50/30/20 rule",
+          "youtubeId": "HQzoZfc3GwQ",
+          "duration": 75
+        },
+        {
+          "id": "video-budget-3",
+          "order": 3,
+          "title": "Common money traps to avoid",
+          "youtubeId": "sVKQn2I4HDM",
+          "duration": 65
+        }
+      ],
+      "quiz": {
+        "id": "quiz-budget",
+        "passingScore": 100,
+        "questions": [
+          {
+            "id": "q1",
+            "videoRef": "video-budget-1",
+            "question": "What is the main purpose of a budget?",
+            "answers": [
+              { "id": "a", "text": "To restrict your spending completely" },
+              { "id": "b", "text": "To know where your money goes and plan ahead" },
+              { "id": "c", "text": "To save 100% of your income" },
+              { "id": "d", "text": "To avoid using a bank account" }
+            ],
+            "correct": "b"
+          },
+          {
+            "id": "q2",
+            "videoRef": "video-budget-1",
+            "question": "Which of these is a fixed expense?",
+            "answers": [
+              { "id": "a", "text": "Groceries" },
+              { "id": "b", "text": "Going out with friends" },
+              { "id": "c", "text": "Monthly rent" },
+              { "id": "d", "text": "Clothing" }
+            ],
+            "correct": "c"
+          },
+          {
+            "id": "q3",
+            "videoRef": "video-budget-2",
+            "question": "In the 50/30/20 rule, what does the 30% represent?",
+            "answers": [
+              { "id": "a", "text": "Needs" },
+              { "id": "b", "text": "Savings" },
+              { "id": "c", "text": "Wants" },
+              { "id": "d", "text": "Taxes" }
+            ],
+            "correct": "c"
+          },
+          {
+            "id": "q4",
+            "videoRef": "video-budget-2",
+            "question": "According to the 50/30/20 rule, how much should go to savings?",
+            "answers": [
+              { "id": "a", "text": "10%" },
+              { "id": "b", "text": "30%" },
+              { "id": "c", "text": "50%" },
+              { "id": "d", "text": "20%" }
+            ],
+            "correct": "d"
+          },
+          {
+            "id": "q5",
+            "videoRef": "video-budget-2",
+            "question": "Which expense fits the 'needs' category?",
+            "answers": [
+              { "id": "a", "text": "Netflix subscription" },
+              { "id": "b", "text": "Gym membership" },
+              { "id": "c", "text": "Health insurance" },
+              { "id": "d", "text": "Concert tickets" }
+            ],
+            "correct": "c"
+          },
+          {
+            "id": "q6",
+            "videoRef": "video-budget-3",
+            "question": "What is a common trap that leads to overspending?",
+            "answers": [
+              { "id": "a", "text": "Tracking every purchase" },
+              { "id": "b", "text": "Impulse buying triggered by notifications and sales" },
+              { "id": "c", "text": "Setting a monthly savings goal" },
+              { "id": "d", "text": "Paying yourself first" }
+            ],
+            "correct": "b"
+          },
+          {
+            "id": "q7",
+            "videoRef": "video-budget-3",
+            "question": "What does 'paying yourself first' mean?",
+            "answers": [
+              { "id": "a", "text": "Spending on fun before paying bills" },
+              { "id": "b", "text": "Saving a portion of your income before spending anything else" },
+              { "id": "c", "text": "Buying things you need before things you want" },
+              { "id": "d", "text": "Paying your rent before your salary arrives" }
+            ],
+            "correct": "b"
+          }
+        ]
+      },
+      "reward": {
+        "boostPercent": 0.5,
+        "boostDurationDays": 30,
+        "label": "0.5% bonus interest for 30 days"
+      }
+    }
+  ]
+}

@@ -30,7 +30,7 @@ function start() {
     <!-- Illustration -->
     <div class="onboarding__illustration">
       <img
-        src="/illustrations/Abstract_09a.png"
+        src="/illustrations/People.png"
         alt="Person using phone"
         class="onboarding__img"
       />
@@ -53,12 +53,12 @@ function start() {
 <style scoped>
 .onboarding {
   min-height: 100dvh;
-  background: linear-gradient(180deg, #eef5f8 0%, #f8f4f8 100%);
+  background: linear-gradient(180deg, #edf3f7 0%, #fdf8fc 60%, #fff 100%);
   display: flex;
   flex-direction: column;
   position: relative;
-  padding-top: calc(env(safe-area-inset-top) + 12px);
-  padding-bottom: calc(env(safe-area-inset-bottom) + 24px);
+  padding-top: calc(env(safe-area-inset-top) + 16px);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 32px);
 }
 
 /* Header */
@@ -66,31 +66,30 @@ function start() {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 16px;
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  border-radius: 99px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  margin: 0 20px;
+  padding: 12px 20px;
+  background: #fff;
+  border-radius: 999px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
 .onboarding__logo {
-  font-size: 22px;
-  font-weight: 800;
-  color: #1a1a2e;
-  letter-spacing: -0.5px;
+  font-size: 24px;
+  font-weight: 900;
+  color: #111;
+  letter-spacing: -1px;
 }
 
 .onboarding__actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .onboarding__lang {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   background: none;
   border: none;
   cursor: pointer;
@@ -98,21 +97,19 @@ function start() {
 }
 
 .onboarding__flag {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  object-fit: cover;
+  font-size: 20px;
+  line-height: 1;
 }
 
 .onboarding__chevron {
   font-size: 10px;
-  color: #888;
+  color: #999;
 }
 
 .onboarding__menu {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 3.5px;
   background: none;
   border: none;
   cursor: pointer;
@@ -121,9 +118,9 @@ function start() {
 
 .onboarding__menu span {
   display: block;
-  width: 18px;
+  width: 20px;
   height: 2px;
-  background: #333;
+  background: #222;
   border-radius: 2px;
 }
 
@@ -133,34 +130,36 @@ function start() {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 20px 32px;
 }
 
 .onboarding__img {
   max-width: 100%;
-  max-height: 50dvh;
+  max-height: 55dvh;
   object-fit: contain;
 }
 
 /* Content */
 .onboarding__content {
-  padding: 0 32px 24px;
+  padding: 0 32px 16px;
 }
 
 .onboarding__label {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   color: #1a1a2e;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
+  letter-spacing: 0.2px;
 }
 
 .onboarding__title {
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 800;
-  color: #1a1a2e;
-  line-height: 1.2;
-  margin: 0 0 32px;
-  letter-spacing: -0.5px;
+  color: #111;
+  line-height: 1.18;
+  margin: 0 0 36px;
+  letter-spacing: -0.8px;
+  max-width: 340px;
 }
 
 .onboarding__highlight {
@@ -170,20 +169,20 @@ function start() {
 .onboarding__btn {
   display: block;
   width: 100%;
-  max-width: 280px;
   background: #f2653a;
   color: #fff;
   border: none;
-  padding: 16px 32px;
-  border-radius: 99px;
+  padding: 18px 32px;
+  border-radius: 999px;
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: transform 0.15s ease, opacity 0.15s ease;
+  transition: transform 0.12s ease, opacity 0.12s ease;
+  letter-spacing: 0.2px;
 }
 
 .onboarding__btn:active {
   transform: scale(0.97);
-  opacity: 0.9;
+  opacity: 0.92;
 }
 </style>

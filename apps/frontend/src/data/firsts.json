@@ -14,21 +14,21 @@
           "id": "video-budget-1",
           "order": 1,
           "title": "What is a budget?",
-          "youtubeId": "sOayvlewEss",
+          "videoID": "https://res.cloudinary.com/di5rp4t2p/video/upload/v1776753986/video-1_lvp62n.mp4",
           "duration": 60
         },
         {
           "id": "video-budget-2",
           "order": 2,
           "title": "The 50/30/20 rule",
-          "youtubeId": "lrf5WpNl_s8",
+          "videoID": "https://res.cloudinary.com/di5rp4t2p/video/upload/v1776753986/video-2_u0x5gs.mp4",
           "duration": 75
         },
         {
           "id": "video-budget-3",
           "order": 3,
           "title": "Common money traps to avoid",
-          "youtubeId": "ZoMtbX30EWM",
+          "videoID": "https://res.cloudinary.com/di5rp4t2p/video/upload/v1776753990/video-3_sqegit.mp4",
           "duration": 65
         }
       ],

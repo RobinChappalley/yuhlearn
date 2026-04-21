@@ -1,6 +1,9 @@
-# Yuhlearn
+# Yuhlearn - Groupe NASDAS
 
-Application d'apprentissage financier pour Yuh. Format short-form (type TikTok/Reels) avec vidéos verticales, quiz interactifs et système de progression.
+Application d'apprentissage financier pour Yuh. Format short-form (type TikTok/Reels) avec vidéos verticales, 
+quiz interactifs et système de progression.
+
+
 
 ## Fonctionnalités
 

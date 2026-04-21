@@ -168,6 +168,14 @@ onMounted(() => {
   }, { threshold: 0.6 })
 
   itemRefs.value.forEach((el) => el && observer.observe(el))
+
+  // Scroll to specific video if start index provided
+  const startIndex = Number(route.query.start) || 0
+  if (startIndex > 0 && startIndex < itemRefs.value.length) {
+    setTimeout(() => {
+      itemRefs.value[startIndex]?.scrollIntoView({ behavior: 'instant' })
+    }, 100)
+  }
 })
 
 onBeforeUnmount(() => {

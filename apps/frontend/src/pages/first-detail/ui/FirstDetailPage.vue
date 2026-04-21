@@ -23,12 +23,17 @@ function isTileCompleted(tileId) {
   return getProgress(first.value.id).completedTiles.includes(tileId)
 }
 
-function handleTileTap(tile) {
+function handleTileTap(tile, index) {
   if (tile.type === 'test') {
     router.push({ name: 'quiz', params: { id: first.value.id } })
   } else {
     if (isTileLocked(first.value.id, tile.id)) return
-    router.push({ name: 'video-player', params: { id: first.value.id, tileId: tile.id || 'feed' } })
+    // Navigate to player with start index to scroll to correct video
+    router.push({
+      name: 'video-player',
+      params: { id: first.value.id },
+      query: { start: index }
+    })
   }
 }
 </script>
@@ -50,7 +55,7 @@ function handleTileTap(tile) {
         :index="index"
         :locked="isTileLocked(first.id, tile.id)"
         :completed="isTileCompleted(tile.id)"
-        @click="handleTileTap(tile)"
+        @click="handleTileTap(tile, index)"
       />
     </div>
   </div>

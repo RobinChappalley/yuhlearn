@@ -11,6 +11,7 @@ quiz interactifs et système de progression.
 - **Feed vidéo vertical** : Scroll snap une vidéo à la fois, autoplay, contrôles tactiles (tap = son, long-press = pause)
 - **Quiz post-vidéo** : Validation des connaissances avec correction immédiate et retry
 - **Big Three Assessment** : Quiz de littératie financière (placement test) avec navigation avant/arrière
+- **Money Personality** : Quiz de personnalité financière (18 questions Likert) avec résultat personnalisé
 - **Progression par étapes** : Système de déblocage séquentiel (vidéo 2 verrouillée tant que vidéo 1 non vue)
 - **Navigation directe** : Clic sur tuile N → ouvre directement à la vidéo N
 
@@ -35,6 +36,8 @@ apps/frontend/src/
 │   ├── player/       # Lecteur vidéo vertical
 │   ├── assessment/   # Big Three Quiz (placement test)
 │   ├── personality-intro/ # Money Personality Quiz intro
+│   ├── personality-quiz/  # Money Personality Quiz (18 questions)
+│   ├── personality-result/ # Résultat Money Personality
 │   ├── quiz/         # Quiz post-vidéo (validation)
 │   └── reward/       # Écran de récompense
 ├── shared/           # Utilitaires partagés
@@ -81,7 +84,8 @@ L'application est accessible sur `http://localhost:5173`
 | `/first/:id` | Détail d'un First |
 | `/assessment` | Big Three Quiz (placement test) |
 | `/personality-intro` | Money Personality Quiz intro |
-| `/personality-quiz` | Money Personality Quiz (18 questions) |
+| `/personality-quiz` | Money Personality Quiz (18 questions Likert) |
+| `/personality-result` | Résultat Money Personality |
 | `/first/:id/video` | Lecteur vidéo vertical |
 
 

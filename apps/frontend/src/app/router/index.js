@@ -42,7 +42,12 @@ const routes = [
   {
     path: '/personality-quiz',
     name: 'personality-quiz',
-    component: () => import('@/pages/personality-intro/ui/PersonalityIntroPage.vue'),
+    component: () => import('@/pages/personality-quiz/ui/PersonalityQuizPage.vue'),
+  },
+  {
+    path: '/personality-result',
+    name: 'personality-result',
+    component: () => import('@/pages/personality-result/ui/PersonalityResultPage.vue'),
   },
   {
     path: '/first/:id/quiz',

@@ -16,7 +16,7 @@ const personality = computed(() => {
 
 function goHome() {
   localStorage.setItem('yuhlearn_personality_done', 'true')
-  router.push({ name: 'home' })
+  router.push({ name: 'firsts-intro' })
 }
 
 function close() {

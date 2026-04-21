@@ -55,6 +55,31 @@ const routes = [
     component: () => import('@/pages/personality-result/ui/PersonalityResultPage.vue'),
   },
   {
+    path: '/firsts-intro',
+    name: 'firsts-intro',
+    component: () => import('@/pages/firsts-intro/ui/FirstsIntroPage.vue'),
+  },
+  {
+    path: '/firsts-live',
+    name: 'firsts-live',
+    component: () => import('@/pages/firsts-live/ui/FirstsLivePage.vue'),
+  },
+  {
+    path: '/setup-dashboard',
+    name: 'setup-dashboard',
+    component: () => import('@/pages/setup-dashboard/ui/SetupDashboardPage.vue'),
+  },
+  {
+    path: '/setup-checkpoint',
+    name: 'setup-checkpoint',
+    component: () => import('@/pages/setup-checkpoint/ui/SetupCheckpointPage.vue'),
+  },
+  {
+    path: '/setup-complete',
+    name: 'setup-complete',
+    component: () => import('@/pages/setup-complete/ui/SetupCompletePage.vue'),
+  },
+  {
     path: '/first/:id/quiz',
     name: 'quiz',
     component: () => import('@/pages/quiz/ui/QuizPage.vue'),
@@ -63,6 +88,11 @@ const routes = [
     path: '/first/:id/reward',
     name: 'reward',
     component: () => import('@/pages/reward/ui/RewardPage.vue'),
+  },
+  {
+    path: '/goal-create',
+    name: 'goal-create',
+    component: () => import('@/pages/goal-create/ui/GoalCreatePage.vue'),
   },
 ]
 

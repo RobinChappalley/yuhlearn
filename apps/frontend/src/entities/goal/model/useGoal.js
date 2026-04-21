@@ -54,5 +54,19 @@ export function useGoal() {
     return Math.min(100, Math.round((goal.currentAmount / goal.targetAmount) * 100))
   }
 
-  return { goals, daysLeft, progressPercent }
+  function createGoal(goalData) {
+    const newGoal = {
+      id: `goal_${Date.now()}`,
+      pocketId: `pocket_${Date.now()}`,
+      createdAt: new Date().toISOString(),
+      startDate: new Date().toISOString(),
+      currentAmount: 0,
+      ...goalData,
+    }
+    goals.value = [newGoal, ...goals.value]
+    saveToStorage(goals.value)
+    return newGoal
+  }
+
+  return { goals, daysLeft, progressPercent, createGoal }
 }

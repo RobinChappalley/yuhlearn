@@ -9,6 +9,8 @@ const router = useRouter()
 
 const first = computed(() => firsts.firsts.find((f) => f.id === route.params.id) ?? null)
 const videos = computed(() => first.value?.videos.filter((v) => v.videoID) ?? [])
+const quiz = computed(() => first.value?.quiz ?? null)
+const hasQuiz = computed(() => quiz.value && quiz.value.questions?.length > 0)
 
 const playerRefs = ref([])
 const itemRefs = ref([])
@@ -73,6 +75,8 @@ function clearLongPress() {
 }
 
 function onTapStart(e) {
+  // Skip if on quiz slide (no player)
+  if (activeIndex.value >= videos.value.length) return
   pointerStart = { x: e.clientX, y: e.clientY }
   longPressTimer = setTimeout(() => {
     longPressTimer = null
@@ -94,6 +98,9 @@ function onPointerMove(e) {
 function onTapEnd() {
   pointerStart = null
 
+  // Skip if on quiz slide (no player)
+  if (activeIndex.value >= videos.value.length) return
+
   if (isHolding.value) {
     // Relâchement d'un long press : on reprend la lecture, on ne touche pas au son
     isHolding.value = false
@@ -111,6 +118,8 @@ function onTapEnd() {
 function onTapCancel() {
   clearLongPress()
   pointerStart = null
+  // Skip if on quiz slide (no player)
+  if (activeIndex.value >= videos.value.length) return
   if (isHolding.value) {
     isHolding.value = false
     getPlayer(activeIndex.value)?.play()
@@ -193,6 +202,28 @@ onBeforeUnmount(() => {
         </div>
 
         <div v-if="isHolding && activeIndex === index" class="player__paused">▐▐</div>
+      </div>
+
+      <!-- Quiz Slide -->
+      <div
+        v-if="hasQuiz"
+        :key="'quiz'"
+        :ref="(el) => { itemRefs[videos.length] = el }"
+        :data-index="videos.length"
+        class="player__item player__item--quiz"
+      >
+        <div class="quiz-preview">
+          <div class="quiz-preview__icon">📝</div>
+          <h2 class="quiz-preview__title">Test your knowledge</h2>
+          <p class="quiz-preview__subtitle">{{ first?.title }}</p>
+          <p class="quiz-preview__count">{{ quiz.questions.length }} questions</p>
+          <button
+            class="quiz-preview__btn"
+            @click="router.push({ name: 'quiz', params: { id: first?.id } })"
+          >
+            Start Quiz
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -312,4 +343,57 @@ onBeforeUnmount(() => {
 
 .hint-enter-active, .hint-leave-active { transition: opacity 0.2s ease; }
 .hint-enter-from, .hint-leave-to { opacity: 0; }
+
+/* Quiz Slide */
+.player__item--quiz {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz-preview {
+  text-align: center;
+  padding: var(--space-6);
+}
+
+.quiz-preview__icon {
+  font-size: 64px;
+  margin-bottom: var(--space-4);
+}
+
+.quiz-preview__title {
+  font-size: var(--font-size-title-s);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 var(--space-2);
+}
+
+.quiz-preview__subtitle {
+  font-size: var(--font-size-body);
+  color: rgba(255,255,255,0.6);
+  margin: 0 0 var(--space-1);
+}
+
+.quiz-preview__count {
+  font-size: var(--font-size-small);
+  color: rgba(255,255,255,0.5);
+  margin: 0 0 var(--space-6);
+}
+
+.quiz-preview__btn {
+  background: var(--color-swiss-orange, #f97316);
+  color: #fff;
+  border: none;
+  padding: var(--space-4) var(--space-8);
+  border-radius: 99px;
+  font-size: var(--font-size-body-big);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.quiz-preview__btn:active {
+  transform: scale(0.95);
+}
 </style>

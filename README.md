@@ -31,6 +31,7 @@ apps/frontend/src/
 │   ├── first-detail/ # Grille de tuiles
 │   ├── player/       # Lecteur vidéo vertical
 │   ├── assessment/   # Big Three Quiz (placement test)
+│   ├── personality-intro/ # Money Personality Quiz intro
 │   ├── quiz/         # Quiz post-vidéo (validation)
 │   └── reward/       # Écran de récompense
 ├── shared/           # Utilitaires partagés
@@ -76,6 +77,8 @@ L'application est accessible sur `http://localhost:5173`
 | `/home` | Liste des Firsts |
 | `/first/:id` | Détail d'un First |
 | `/assessment` | Big Three Quiz (placement test) |
+| `/personality-intro` | Money Personality Quiz intro |
+| `/personality-quiz` | Money Personality Quiz (18 questions) |
 | `/first/:id/video` | Lecteur vidéo vertical |
 
 

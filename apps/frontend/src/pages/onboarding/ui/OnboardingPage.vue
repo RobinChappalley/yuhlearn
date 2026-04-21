@@ -5,7 +5,7 @@ const router = useRouter()
 
 function start() {
   localStorage.setItem('yuhlearn_onboarding_seen', 'true')
-  router.push({ name: 'home' })
+  router.push({ name: 'assessment' })
 }
 </script>
 

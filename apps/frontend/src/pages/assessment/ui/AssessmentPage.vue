@@ -42,7 +42,7 @@ function submit() {
   const score = results.filter((r) => r.correct).length
   localStorage.setItem('yuhlearn_bigthree_score', score.toString())
   localStorage.setItem('yuhlearn_bigthree_done', 'true')
-  router.push({ name: 'home' })
+  router.push({ name: 'personality-intro' })
 }
 
 function close() {

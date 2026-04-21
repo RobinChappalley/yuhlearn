@@ -9,7 +9,7 @@
         {
           "id": "big-three-q1",
           "order": 1,
-          "text": "Suppose you had **$100** in a **savings** account and the interest rate was **2% per year**. **After 5 years, how much** do you think you would have in the account if you left the money to grow?",
+          "text": "Suppose you had <strong>$100</strong> in a <strong>savings</strong> account and the interest rate was <strong>2% per year</strong>. <strong>After 5 years, how much</strong> do you think you would have in the account if you left the money to grow?",
           "answers": [
             { "id": "a", "text": "More than $102" },
             { "id": "b", "text": "Exactly $102" },
@@ -23,7 +23,7 @@
         {
           "id": "big-three-q2",
           "order": 2,
-          "text": "Imagine that the **interest rate** on your savings account was **1% per year** and **inflation** was **2% per year**. After 1 year, how much would you be able to buy with the money in this account?",
+          "text": "Imagine that the <strong>interest rate</strong> on your savings account was <strong>1% per year</strong> and <strong>inflation</strong> was <strong>2% per year</strong>. After 1 year, how much would you be able to buy with the money in this account?",
           "answers": [
             { "id": "a", "text": "More than today" },
             { "id": "b", "text": "Exactly the same" },
@@ -37,7 +37,7 @@
         {
           "id": "big-three-q3",
           "order": 3,
-          "text": "Do you think that the following statement is **true or false**? '**Buying a single company stock** usually provides a **safer return** than a **stock mutual fund**.'",
+          "text": "Do you think that the following statement is <strong>true or false</strong>? '<strong>Buying a single company stock</strong> usually provides a <strong>safer return</strong> than a <strong>stock mutual fund</strong>.'",
           "answers": [
             { "id": "a", "text": "True" },
             { "id": "b", "text": "False" },

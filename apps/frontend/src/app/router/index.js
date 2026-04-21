@@ -30,6 +30,11 @@ const routes = [
     component: () => import('@/pages/player/ui/PlayerPage.vue'),
   },
   {
+    path: '/assessment',
+    name: 'assessment',
+    component: () => import('@/pages/assessment/ui/AssessmentPage.vue'),
+  },
+  {
     path: '/first/:id/quiz',
     name: 'quiz',
     component: () => import('@/pages/quiz/ui/QuizPage.vue'),

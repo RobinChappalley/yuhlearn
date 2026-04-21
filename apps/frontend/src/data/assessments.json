@@ -1,0 +1,53 @@
+{
+  "assessments": [
+    {
+      "id": "big-three",
+      "title": "Take the Big Three Quiz",
+      "estimatedMinutes": 15,
+      "description": "Test your financial literacy with the world's most trusted 3-question assessment.",
+      "questions": [
+        {
+          "id": "big-three-q1",
+          "order": 1,
+          "text": "Suppose you had **$100** in a **savings** account and the interest rate was **2% per year**. **After 5 years, how much** do you think you would have in the account if you left the money to grow?",
+          "answers": [
+            { "id": "a", "text": "More than $102" },
+            { "id": "b", "text": "Exactly $102" },
+            { "id": "c", "text": "Less than $102" },
+            { "id": "d", "text": "Don't know" },
+            { "id": "e", "text": "Refuse to answer" }
+          ],
+          "correct": "a",
+          "explanation": "With compound interest, $100 at 2% per year for 5 years grows to about $110.41 — more than $102."
+        },
+        {
+          "id": "big-three-q2",
+          "order": 2,
+          "text": "Imagine that the **interest rate** on your savings account was **1% per year** and **inflation** was **2% per year**. After 1 year, how much would you be able to buy with the money in this account?",
+          "answers": [
+            { "id": "a", "text": "More than today" },
+            { "id": "b", "text": "Exactly the same" },
+            { "id": "c", "text": "Less than today" },
+            { "id": "d", "text": "Don't know" },
+            { "id": "e", "text": "Refuse to answer" }
+          ],
+          "correct": "c",
+          "explanation": "When inflation (2%) is higher than interest (1%), your purchasing power decreases — you can buy less."
+        },
+        {
+          "id": "big-three-q3",
+          "order": 3,
+          "text": "Do you think that the following statement is **true or false**? '**Buying a single company stock** usually provides a **safer return** than a **stock mutual fund**.'",
+          "answers": [
+            { "id": "a", "text": "True" },
+            { "id": "b", "text": "False" },
+            { "id": "c", "text": "Don't know" },
+            { "id": "d", "text": "Refuse to answer" }
+          ],
+          "correct": "b",
+          "explanation": "A mutual fund spreads risk across many companies. A single stock is riskier because it depends on one company."
+        }
+      ]
+    }
+  ]
+}

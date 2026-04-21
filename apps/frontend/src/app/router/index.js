@@ -12,7 +12,7 @@ const routes = [
     component: () => import('@/pages/first-detail/ui/FirstDetailPage.vue'),
   },
   {
-    path: '/first/:id/video/:tileId',
+    path: '/first/:id/video/:tileId?',
     name: 'video-player',
     component: () => import('@/pages/player/ui/PlayerPage.vue'),
   },

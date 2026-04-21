@@ -218,7 +218,7 @@ onBeforeUnmount(() => {
 
         <Transition name="hint">
           <div v-if="showUnmuteHint && activeIndex === index" class="player__unmute-hint">
-            🔇 Tap pour activer le son
+            🔇 Tap to unmute
           </div>
         </Transition>
 

@@ -1,0 +1,153 @@
+{
+  "personalityQuiz": {
+    "id": "money-personality",
+    "title": "Money Personality",
+    "estimatedMinutes": 9,
+    "totalSteps": 18,
+    "questions": [
+      {
+        "id": "mp-q1",
+        "order": 1,
+        "text": "I'm good at handling my money.",
+        "trait": "control"
+      },
+      {
+        "id": "mp-q2",
+        "order": 2,
+        "text": "I consider myself a social person.",
+        "trait": "social"
+      },
+      {
+        "id": "mp-q3",
+        "order": 3,
+        "text": "I often buy things on impulse.",
+        "trait": "impulse"
+      },
+      {
+        "id": "mp-q4",
+        "order": 4,
+        "text": "I enjoy treating friends and family.",
+        "trait": "generous"
+      },
+      {
+        "id": "mp-q5",
+        "order": 5,
+        "text": "I worry about money even when I have enough.",
+        "trait": "anxious"
+      },
+      {
+        "id": "mp-q6",
+        "order": 6,
+        "text": "I prefer experiences over material things.",
+        "trait": "experiential"
+      },
+      {
+        "id": "mp-q7",
+        "order": 7,
+        "text": "I set clear financial goals for myself.",
+        "trait": "planner"
+      },
+      {
+        "id": "mp-q8",
+        "order": 8,
+        "text": "I find it hard to say no to social events because of cost.",
+        "trait": "fomo"
+      },
+      {
+        "id": "mp-q9",
+        "order": 9,
+        "text": "I track my spending regularly.",
+        "trait": "tracker"
+      },
+      {
+        "id": "mp-q10",
+        "order": 10,
+        "text": "I feel pressure to keep up with others' lifestyles.",
+        "trait": "social-pressure"
+      },
+      {
+        "id": "mp-q11",
+        "order": 11,
+        "text": "I save money consistently every month.",
+        "trait": "saver"
+      },
+      {
+        "id": "mp-q12",
+        "order": 12,
+        "text": "I often split bills evenly even if I ordered less.",
+        "trait": "fair"
+      },
+      {
+        "id": "mp-q13",
+        "order": 13,
+        "text": "I avoid checking my bank balance because it stresses me.",
+        "trait": "avoidant"
+      },
+      {
+        "id": "mp-q14",
+        "order": 14,
+        "text": "I research before making big purchases.",
+        "trait": "researcher"
+      },
+      {
+        "id": "mp-q15",
+        "order": 15,
+        "text": "I feel guilty after spending money on myself.",
+        "trait": "guilty"
+      },
+      {
+        "id": "mp-q16",
+        "order": 16,
+        "text": "I prefer to invest rather than keep cash in savings.",
+        "trait": "investor"
+      },
+      {
+        "id": "mp-q17",
+        "order": 17,
+        "text": "I talk openly about money with friends.",
+        "trait": "open"
+      },
+      {
+        "id": "mp-q18",
+        "order": 18,
+        "text": "I feel in control of my financial future.",
+        "trait": "confidence"
+      }
+    ],
+    "answers": [
+      { "id": "a", "text": "Bang on.", "value": 4 },
+      { "id": "b", "text": "Hmm Kinda", "value": 3 },
+      { "id": "c", "text": "Not quite.", "value": 2 },
+      { "id": "d", "text": "Nope.", "value": 1 }
+    ],
+    "results": {
+      "socialite": {
+        "title": "The Socialite",
+        "label": "Your Money Personality",
+        "scoreRange": "high-social",
+        "description": "They say money doesn't buy happiness, but you're clearly out here testing that theory.",
+        "detail": "For the Socialite, money is basically a VIP pass to enjoy the finer things and share that with those around you. You're not afraid to take a few risks to live your best life.",
+        "illustration": "/illustrations/People-1.png",
+        "speechBubble": "Chill, It's on me."
+      },
+      "planner": {
+        "title": "The Planner",
+        "label": "Your Money Personality",
+        "scoreRange": "high-planner",
+        "description": "You've got spreadsheets for your spreadsheets.",
+        "detail": "For the Planner, every purchase is a calculated decision. You find peace in budgets and security in savings.",
+        "illustration": "/illustrations/People.png",
+        "speechBubble": "I've got this covered."
+      },
+      "newbie": {
+        "title": "The Newbie",
+        "label": "Your financial literacy level",
+        "scoreRange": "low-confidence",
+        "description": "You got {score}/3 correct. Like 25% of under-30s, you're just getting started.",
+        "detail": "Finance is a skill, not a personality trait, so don't worry. Ready to explore your relationship with money and find your next move?",
+        "illustration": "/illustrations/YuhPerson_DP_3b.svg",
+        "speechBubble": "I'm a bit confused ..."
+      }
+    }
+  }
+}

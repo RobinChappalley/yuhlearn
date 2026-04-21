@@ -2,8 +2,6 @@
 const props = defineProps({
   question: { type: Object, required: true },
   selectedAnswerId: { type: String, default: null },
-  currentStep: { type: Number, required: true },
-  totalSteps: { type: Number, required: true },
 })
 
 const emit = defineEmits(['select', 'back'])
@@ -15,21 +13,6 @@ function select(answerId) {
 
 <template>
   <div class="assessment-card">
-    <!-- Progress bars -->
-    <div class="assessment-card__meta">
-      <span class="assessment-card__steps">Steps {{ currentStep }} / {{ totalSteps }}</span>
-      <span class="assessment-card__time">{{ question.estimatedMinutes ?? 15 }} mins</span>
-    </div>
-
-    <div class="assessment-card__bars">
-      <div
-        v-for="n in totalSteps"
-        :key="n"
-        class="assessment-card__bar"
-        :class="{ 'assessment-card__bar--active': n <= currentStep }"
-      />
-    </div>
-
     <!-- Title -->
     <h1 class="assessment-card__title">Take the Big Three Quiz</h1>
 
@@ -69,43 +52,6 @@ function select(answerId) {
   display: flex;
   flex-direction: column;
   flex: 1;
-}
-
-.assessment-card__meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.assessment-card__steps {
-  font-size: 13px;
-  font-weight: 700;
-  color: #1a1a2e;
-}
-
-.assessment-card__time {
-  font-size: 12px;
-  font-weight: 600;
-  color: #f2653a;
-}
-
-.assessment-card__bars {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 32px;
-}
-
-.assessment-card__bar {
-  flex: 1;
-  height: 4px;
-  border-radius: 4px;
-  background: #e8e8ed;
-  transition: background 0.3s ease;
-}
-
-.assessment-card__bar--active {
-  background: #f2653a;
 }
 
 .assessment-card__title {

@@ -92,8 +92,6 @@ function close() {
         :key="currentQuestion.id"
         :question="currentQuestion"
         :selected-answer-id="answers[currentQuestion.id] ?? null"
-        :current-step="currentStep"
-        :total-steps="totalSteps"
         @select="handleSelect"
         @back="goBack"
       />

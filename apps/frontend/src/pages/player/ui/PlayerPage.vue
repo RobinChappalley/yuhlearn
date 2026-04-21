@@ -2,10 +2,12 @@
 import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { YoutubePlayer } from '@/widgets/youtube-player'
+import { useProgress } from '@/entities/progress'
 import firsts from '@/data/firsts.json'
 
 const route = useRoute()
 const router = useRouter()
+const { markTileComplete } = useProgress()
 
 const first = computed(() => firsts.firsts.find((f) => f.id === route.params.id) ?? null)
 const videos = computed(() => first.value?.videos.filter((v) => v.videoID) ?? [])
@@ -51,6 +53,22 @@ function applySoundState(player) {
 function activateVideo(index) {
   if (index === activeIndex.value && hasActivated) return
   hasActivated = true
+
+  // Marquer la vidéo précédente comme complétée si on avance
+  if (index > activeIndex.value && first.value) {
+    const prevVideo = videos.value[activeIndex.value]
+    if (prevVideo) {
+      markTileComplete(first.value.id, prevVideo.id)
+    }
+  }
+
+  // Marquer la dernière vidéo comme complétée quand on arrive sur le quiz
+  if (index === videos.value.length && first.value) {
+    const lastVideo = videos.value[videos.value.length - 1]
+    if (lastVideo) {
+      markTileComplete(first.value.id, lastVideo.id)
+    }
+  }
 
   // Pause + mute la vidéo précédente
   if (index !== activeIndex.value) {

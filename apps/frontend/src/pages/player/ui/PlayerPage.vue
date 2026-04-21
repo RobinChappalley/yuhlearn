@@ -168,6 +168,7 @@ onBeforeUnmount(() => {
         @pointerup="onTapEnd"
         @pointercancel="onTapCancel"
         @pointerleave="onTapCancel"
+        @contextmenu.prevent
       >
         <YoutubePlayer
           :ref="(el) => { playerRefs[index] = el }"
@@ -240,7 +241,16 @@ onBeforeUnmount(() => {
   scroll-snap-stop: always;
   cursor: pointer;
   user-select: none;
-  touch-action: pan-y; /* autorise le scroll vertical, bloque le reste */
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-drag: none;
+  outline: none;
+  touch-action: pan-y;
+}
+
+.player__item::selection {
+  background: transparent;
 }
 
 .player__item-info {

@@ -61,11 +61,24 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-drag: none;
+  outline: none;
+}
+
+.video-player::selection {
+  background: transparent;
 }
 
 .video-player__element {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 </style>

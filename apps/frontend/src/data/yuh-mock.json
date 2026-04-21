@@ -1,0 +1,13 @@
+{
+  "pockets": [
+    {
+      "id": "pocket-bmw",
+      "name": "BMW",
+      "targetAmount": 10000,
+      "currentAmount": 3240,
+      "currency": "CHF",
+      "startDate": "2024-08-01",
+      "endDate": "2029-07-31"
+    }
+  ]
+}

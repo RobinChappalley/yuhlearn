@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { OnboardingProgress } from '@/widgets/onboarding-progress'
 import personalityQuizData from '@/data/personality-quiz.json'
 
 const router = useRouter()
@@ -50,18 +51,12 @@ function close() {
       </div>
     </header>
 
-    <!-- Progress -->
-    <div class="personality-result__progress">
-      <div class="personality-result__meta">
-        <span class="personality-result__steps">Steps 18 / 18</span>
-        <span class="personality-result__time">5 mins</span>
-      </div>
-      <div class="personality-result__bars">
-        <div class="personality-result__bar personality-result__bar--active" />
-        <div class="personality-result__bar personality-result__bar--active" />
-        <div class="personality-result__bar personality-result__bar--active" />
-      </div>
-    </div>
+    <OnboardingProgress
+      :phase="1"
+      :step="18"
+      :total="18"
+      :minutes="5"
+    />
 
     <!-- Illustration -->
     <div class="personality-result__illustration">

@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { AssessmentCard } from '@/widgets/assessment-card'
+import { OnboardingProgress } from '@/widgets/onboarding-progress'
 import assessments from '@/data/assessments.json'
 
 const router = useRouter()
@@ -76,6 +77,13 @@ function close() {
         </button>
       </div>
     </header>
+
+    <OnboardingProgress
+      :phase="0"
+      :step="currentStep"
+      :total="4"
+      :minutes="15"
+    />
 
     <!-- Content -->
     <div class="assessment__content">

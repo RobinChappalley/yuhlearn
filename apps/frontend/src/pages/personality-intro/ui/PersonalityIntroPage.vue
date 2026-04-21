@@ -1,5 +1,6 @@
 <script setup>
 import { useRouter } from 'vue-router'
+import { OnboardingProgress } from '@/widgets/onboarding-progress'
 
 const router = useRouter()
 
@@ -39,18 +40,12 @@ function close() {
       </div>
     </header>
 
-    <!-- Progress -->
-    <div class="personality-intro__progress">
-      <div class="personality-intro__meta">
-        <span class="personality-intro__steps">Steps 1 / 18</span>
-        <span class="personality-intro__time">9 mins</span>
-      </div>
-      <div class="personality-intro__bars">
-        <div class="personality-intro__bar personality-intro__bar--active" />
-        <div class="personality-intro__bar" />
-        <div class="personality-intro__bar" />
-      </div>
-    </div>
+    <OnboardingProgress
+      :phase="1"
+      :step="1"
+      :total="18"
+      :minutes="9"
+    />
 
     <!-- Illustration -->
     <div class="personality-intro__illustration">

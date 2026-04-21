@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { OnboardingProgress } from '@/widgets/onboarding-progress'
 
 const router = useRouter()
 
@@ -50,18 +51,12 @@ function close() {
       </div>
     </header>
 
-    <!-- Progress -->
-    <div class="assessment-result__progress">
-      <div class="assessment-result__meta">
-        <span class="assessment-result__steps">Steps 4 / 4</span>
-        <span class="assessment-result__time">10 mins</span>
-      </div>
-      <div class="assessment-result__bars">
-        <div class="assessment-result__bar assessment-result__bar--active" />
-        <div class="assessment-result__bar" />
-        <div class="assessment-result__bar" />
-      </div>
-    </div>
+    <OnboardingProgress
+      :phase="0"
+      :step="4"
+      :total="4"
+      :minutes="15"
+    />
 
     <!-- Illustration -->
     <div class="assessment-result__illustration">

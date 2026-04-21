@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { OnboardingProgress } from '@/widgets/onboarding-progress'
 import personalityQuizData from '@/data/personality-quiz.json'
 
 const router = useRouter()
@@ -72,21 +73,12 @@ function submitQuiz() {
       </div>
     </header>
 
-    <!-- Progress -->
-    <div class="personality-quiz__progress">
-      <div class="personality-quiz__meta">
-        <span class="personality-quiz__steps">Steps {{ currentStep }} / {{ totalSteps }}</span>
-        <span class="personality-quiz__time">{{ quiz.estimatedMinutes }} mins</span>
-      </div>
-      <div class="personality-quiz__bars">
-        <div
-          v-for="n in 3"
-          :key="n"
-          class="personality-quiz__bar"
-          :class="{ 'personality-quiz__bar--active': n <= Math.ceil((currentStep / totalSteps) * 3) }"
-        />
-      </div>
-    </div>
+    <OnboardingProgress
+      :phase="1"
+      :step="currentStep"
+      :total="18"
+      :minutes="9"
+    />
 
     <!-- Question -->
     <div class="personality-quiz__content">

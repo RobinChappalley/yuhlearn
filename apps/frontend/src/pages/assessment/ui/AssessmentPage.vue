@@ -22,11 +22,14 @@ const allAnswered = computed(() => Object.keys(answers.value).length === questio
 function handleSelect(answerId) {
   if (!currentQuestion.value) return
   answers.value[currentQuestion.value.id] = answerId
-  if (isLast.value) {
-    submit()
-  } else {
-    currentIndex.value++
-  }
+  // Small delay so the orange selected state is visible before moving on
+  setTimeout(() => {
+    if (isLast.value) {
+      submit()
+    } else {
+      currentIndex.value++
+    }
+  }, 300)
 }
 
 function goBack() {
@@ -92,6 +95,7 @@ function close() {
         :key="currentQuestion.id"
         :question="currentQuestion"
         :selected-answer-id="answers[currentQuestion.id] ?? null"
+        :can-go-back="currentIndex > 0"
         @select="handleSelect"
         @back="goBack"
       />

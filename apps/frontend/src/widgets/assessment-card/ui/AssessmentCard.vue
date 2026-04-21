@@ -2,6 +2,7 @@
 const props = defineProps({
   question: { type: Object, required: true },
   selectedAnswerId: { type: String, default: null },
+  canGoBack: { type: Boolean, default: false },
 })
 
 const emit = defineEmits(['select', 'back'])
@@ -35,7 +36,7 @@ function select(answerId) {
     <!-- Back button -->
     <div class="assessment-card__footer">
       <button
-        v-if="currentStep > 1"
+        v-if="canGoBack"
         class="assessment-card__back"
         @click="emit('back')"
       >

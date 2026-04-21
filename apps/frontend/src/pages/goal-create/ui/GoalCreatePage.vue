@@ -8,7 +8,7 @@ const router = useRouter()
 const route = useRoute()
 const { createGoal } = useGoal()
 
-// Detect if we're in onboarding mode (from personality-result) or standalone mode
+// Detect if we're in onboarding mode (from budget-result) or standalone mode
 const isOnboarding = computed(() => route.query.mode === 'onboarding')
 
 const currentStep = ref(1)
@@ -35,7 +35,7 @@ const monthlySavings = computed(() => {
 const formattedTargetDate = computed(() => {
   if (!goalData.value.targetDate) return ''
   const date = new Date(goalData.value.targetDate)
-  return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' })
+  return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
 })
 
 function nextStep() {
@@ -60,25 +60,26 @@ function close() {
 
 async function createNewGoal() {
   currentStep.value = 5 // Show loading
-  
+
   // Simulate API call delay
   await new Promise(resolve => setTimeout(resolve, 1500))
-  
+
   const newGoal = {
-    name: goalData.value.name || 'Mon objectif',
+    name: goalData.value.name || 'My goal',
     description: goalData.value.description,
     targetAmount: parseFloat(goalData.value.targetAmount) || 0,
     currentAmount: 0,
     currency: 'CHF',
     endDate: goalData.value.targetDate,
   }
-  
+
   createGoal(newGoal)
-  
+
   currentStep.value = 6 // Show success
 }
 
 function goToDashboard() {
+  localStorage.setItem('yuhlearn_onboarding_seen', 'true')
   router.push({ name: 'home' })
 }
 </script>
@@ -112,8 +113,8 @@ function goToDashboard() {
 
     <OnboardingProgress
       :phase="2"
-      :step="currentStep"
-      :total="totalSteps"
+      :step="3"
+      :total="3"
       :minutes="3"
     />
 
@@ -123,73 +124,73 @@ function goToDashboard() {
         <!-- Step 1: Intro -->
         <div v-if="currentStep === 1" key="step1" class="goal-create__step">
           <div class="goal-create__intro">
-            <h1 class="goal-create__title">Définissons les modalités de ton objectif</h1>
+            <h1 class="goal-create__title">Let's set up your goal</h1>
             <p class="goal-create__subtitle">
-              Nous allons créer ton objectif d'épargne en quelques étapes simples.
+              We'll create your savings goal in a few simple steps.
             </p>
           </div>
-          
+
           <div class="goal-create__preview">
             <div class="goal-create__preview-item">
-              <span class="goal-create__preview-label">Combien veux-tu épargner ?</span>
+              <span class="goal-create__preview-label">How much do you want to save?</span>
               <span class="goal-create__preview-value">CHF {{ goalData.targetAmount || '0' }}</span>
             </div>
             <div class="goal-create__preview-item">
-              <span class="goal-create__preview-label">Quand en as-tu besoin ?</span>
-              <span class="goal-create__preview-value">{{ formattedTargetDate || 'Non défini' }}</span>
+              <span class="goal-create__preview-label">When do you need it?</span>
+              <span class="goal-create__preview-value">{{ formattedTargetDate || 'Not set' }}</span>
             </div>
           </div>
-          
+
           <button class="goal-create__btn" @click="nextStep">
-            Commencer
+            Get started
           </button>
         </div>
 
         <!-- Step 2: Goal Name -->
         <div v-else-if="currentStep === 2" key="step2" class="goal-create__step">
-          <h2 class="goal-create__step-title">Quel est ton objectif d'épargne ?</h2>
-          <p class="goal-create__step-subtitle">Donne un nom à ton objectif pour le retrouver facilement.</p>
-          
+          <h2 class="goal-create__step-title">What's your savings goal?</h2>
+          <p class="goal-create__step-subtitle">Give your goal a name so you can find it easily.</p>
+
           <div class="goal-create__field">
-            <label class="goal-create__label">Nom de l'objectif</label>
+            <label class="goal-create__label">Goal name</label>
             <input
               v-model="goalData.name"
               type="text"
               class="goal-create__input"
-              placeholder="Ex: MacBook Pro M4"
+              placeholder="e.g. MacBook Pro M4"
               @keyup.enter="nextStep"
             />
           </div>
-          
+
           <div class="goal-create__field">
-            <label class="goal-create__label">Description (optionnel)</label>
+            <label class="goal-create__label">Description (optional)</label>
             <textarea
               v-model="goalData.description"
               class="goal-create__textarea"
-              placeholder="Ex: Pour mon travail de freelance"
+              placeholder="e.g. For my freelance work"
               rows="3"
             />
           </div>
-          
+
           <div class="goal-create__actions-row">
             <button class="goal-create__btn goal-create__btn--secondary" @click="prevStep">
-              Retour
+              Back
             </button>
-            <button 
-              class="goal-create__btn" 
+            <button
+              class="goal-create__btn"
               :disabled="!goalData.name"
               @click="nextStep"
             >
-              Continuer
+              Continue
             </button>
           </div>
         </div>
 
         <!-- Step 3: Target Amount -->
         <div v-else-if="currentStep === 3" key="step3" class="goal-create__step">
-          <h2 class="goal-create__step-title">Combien veux-tu épargner ?</h2>
-          <p class="goal-create__step-subtitle">Indique le montant total dont tu as besoin.</p>
-          
+          <h2 class="goal-create__step-title">How much do you want to save?</h2>
+          <p class="goal-create__step-subtitle">Enter the total amount you need.</p>
+
           <div class="goal-create__amount-field">
             <span class="goal-create__currency">CHF</span>
             <input
@@ -201,26 +202,26 @@ function goToDashboard() {
               @keyup.enter="nextStep"
             />
           </div>
-          
+
           <div class="goal-create__actions-row">
             <button class="goal-create__btn goal-create__btn--secondary" @click="prevStep">
-              Retour
+              Back
             </button>
-            <button 
-              class="goal-create__btn" 
+            <button
+              class="goal-create__btn"
               :disabled="!goalData.targetAmount || goalData.targetAmount <= 0"
               @click="nextStep"
             >
-              Continuer
+              Continue
             </button>
           </div>
         </div>
 
         <!-- Step 4: Target Date -->
         <div v-else-if="currentStep === 4" key="step4" class="goal-create__step">
-          <h2 class="goal-create__step-title">Quand en as-tu besoin ?</h2>
-          <p class="goal-create__step-subtitle">Choisis la date butoir pour atteindre ton objectif.</p>
-          
+          <h2 class="goal-create__step-title">When do you need it?</h2>
+          <p class="goal-create__step-subtitle">Pick a target date to reach your goal.</p>
+
           <div class="goal-create__field">
             <input
               v-model="goalData.targetDate"
@@ -229,17 +230,17 @@ function goToDashboard() {
               :min="new Date().toISOString().split('T')[0]"
             />
           </div>
-          
+
           <div class="goal-create__actions-row">
             <button class="goal-create__btn goal-create__btn--secondary" @click="prevStep">
-              Retour
+              Back
             </button>
-            <button 
-              class="goal-create__btn" 
+            <button
+              class="goal-create__btn"
               :disabled="!goalData.targetDate"
               @click="nextStep"
             >
-              Continuer
+              Continue
             </button>
           </div>
         </div>
@@ -247,43 +248,43 @@ function goToDashboard() {
         <!-- Step 5: Summary -->
         <div v-else-if="currentStep === 5" key="step5" class="goal-create__step">
           <div v-if="currentStep === 5 && goalData.name" class="goal-create__summary">
-            <h2 class="goal-create__step-title">Tu y es presque !</h2>
-            <p class="goal-create__step-subtitle">Vérifie les informations de ton objectif avant de le créer.</p>
-            
+            <h2 class="goal-create__step-title">You're almost there!</h2>
+            <p class="goal-create__step-subtitle">Review your goal details before creating it.</p>
+
             <div class="goal-create__recap">
               <div class="goal-create__recap-item">
-                <span class="goal-create__recap-label">Objectif</span>
+                <span class="goal-create__recap-label">Goal</span>
                 <span class="goal-create__recap-value">{{ goalData.name }}</span>
               </div>
               <div class="goal-create__recap-item">
-                <span class="goal-create__recap-label">Montant cible</span>
+                <span class="goal-create__recap-label">Target amount</span>
                 <span class="goal-create__recap-value">{{ parseFloat(goalData.targetAmount).toLocaleString() }} CHF</span>
               </div>
               <div class="goal-create__recap-item">
-                <span class="goal-create__recap-label">Date butoir</span>
+                <span class="goal-create__recap-label">Target date</span>
                 <span class="goal-create__recap-value">{{ formattedTargetDate }}</span>
               </div>
               <div class="goal-create__recap-highlight">
-                <span class="goal-create__recap-highlight-label">Épargne mensuelle nécessaire</span>
-                <span class="goal-create__recap-highlight-value">{{ monthlySavings }} CHF/mois</span>
+                <span class="goal-create__recap-highlight-label">Required monthly savings</span>
+                <span class="goal-create__recap-highlight-value">{{ monthlySavings }} CHF/month</span>
               </div>
             </div>
-            
+
             <div class="goal-create__actions-row">
               <button class="goal-create__btn goal-create__btn--secondary" @click="prevStep">
-                Modifier
+                Edit
               </button>
               <button class="goal-create__btn" @click="createNewGoal">
-                Créer mon objectif
+                Create my goal
               </button>
             </div>
           </div>
-          
+
           <!-- Loading State -->
           <div v-else class="goal-create__loading">
             <div class="goal-create__rocket">🚀</div>
-            <h2 class="goal-create__loading-title">C'est parti !</h2>
-            <p class="goal-create__loading-text">Nous créons ton objectif...</p>
+            <h2 class="goal-create__loading-title">Here we go!</h2>
+            <p class="goal-create__loading-text">Creating your goal...</p>
           </div>
         </div>
 
@@ -291,12 +292,12 @@ function goToDashboard() {
         <div v-else-if="currentStep === 6" key="step6" class="goal-create__step">
           <div class="goal-create__success">
             <div class="goal-create__success-icon">🎉</div>
-            <h2 class="goal-create__success-title">Objectif créé !</h2>
+            <h2 class="goal-create__success-title">Goal created!</h2>
             <p class="goal-create__success-text">
-              Ton objectif "{{ goalData.name }}" a été créé avec succès.
+              Your goal "{{ goalData.name }}" has been created successfully.
             </p>
             <button class="goal-create__btn" @click="goToDashboard">
-              Voir mon tableau de bord
+              Go to dashboard
             </button>
           </div>
         </div>
@@ -307,7 +308,7 @@ function goToDashboard() {
     <div v-if="currentStep > 1 && currentStep < 6" class="goal-create__footer">
       <button class="goal-create__back" @click="prevStep">
         <span class="goal-create__back-arrow">‹</span>
-        Retour
+        Back
       </button>
     </div>
   </div>

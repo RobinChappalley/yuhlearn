@@ -49,7 +49,7 @@ const result = computed(() => {
 
 function finish() {
   localStorage.setItem('yuhlearn_budget_done', 'true')
-  router.push({ name: 'home' })
+  router.push({ name: 'goal-create', query: { mode: 'onboarding' } })
 }
 
 function close() {

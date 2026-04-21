@@ -44,6 +44,7 @@ apps/frontend/src/
 │   ├── budget-essentials/ # Phase 3 : Dépenses essentielles (must-haves)
 │   ├── budget-treats/    # Phase 3 : Dépenses plaisir (nice-to-haves)
 │   ├── budget-result/    # Phase 3 : Résultat (Surplus/Balance)
+│   ├── goal-create/      # Définition de l'objectif d'épargne (fin onboarding)
 │   ├── quiz/         # Quiz post-vidéo (validation)
 │   └── reward/       # Écran de récompense
 ├── shared/           # Utilitaires partagés
@@ -98,6 +99,7 @@ L'application est accessible sur `http://localhost:5173`
 | `/budget-essentials` | Phase 3 : Dépenses essentielles |
 | `/budget-treats` | Phase 3 : Dépenses plaisir |
 | `/budget-result` | Phase 3 : Résultat Budget Check |
+| `/goal-create` | Définition de l'objectif d'épargne (fin onboarding) |
 | `/first/:id/video` | Lecteur vidéo vertical |
 
 

@@ -12,13 +12,25 @@ const { createGoal } = useGoal()
 const isOnboarding = computed(() => route.query.mode === 'onboarding')
 
 const currentStep = ref(1)
-const totalSteps = 6
+const totalSteps = 7
+const isLoading = ref(false)
 
 const goalData = ref({
   name: '',
   description: '',
   targetAmount: '',
   targetDate: '',
+  savingsMethod: '', // 'auto' | 'manual'
+})
+
+function selectSavingsMethod(method) {
+  goalData.value.savingsMethod = method
+}
+
+const savingsMethodLabel = computed(() => {
+  if (goalData.value.savingsMethod === 'auto') return 'Autosaving'
+  if (goalData.value.savingsMethod === 'manual') return 'Manual transfers'
+  return ''
 })
 
 const isLastStep = computed(() => currentStep.value === totalSteps)
@@ -59,7 +71,7 @@ function close() {
 }
 
 async function createNewGoal() {
-  currentStep.value = 5 // Show loading
+  isLoading.value = true
 
   // Simulate API call delay
   await new Promise(resolve => setTimeout(resolve, 1500))
@@ -71,11 +83,13 @@ async function createNewGoal() {
     currentAmount: 0,
     currency: 'CHF',
     endDate: goalData.value.targetDate,
+    savingsMethod: goalData.value.savingsMethod,
   }
 
   createGoal(newGoal)
 
-  currentStep.value = 6 // Show success
+  isLoading.value = false
+  currentStep.value = 7 // Show success
 }
 
 function goToDashboard() {
@@ -245,9 +259,47 @@ function goToDashboard() {
           </div>
         </div>
 
-        <!-- Step 5: Summary -->
+        <!-- Step 5: Savings Method -->
         <div v-else-if="currentStep === 5" key="step5" class="goal-create__step">
-          <div v-if="currentStep === 5 && goalData.name" class="goal-create__summary">
+          <h2 class="goal-create__step-title">Choose Your Move: Set it &amp; Forget it</h2>
+          <p class="goal-create__step-subtitle">
+            The secret to a "financial six-pack" is consistency. How do you want to move the money? (Don't worry you can change this setting anytime)
+          </p>
+
+          <div class="goal-create__options">
+            <button
+              class="goal-create__option"
+              :class="{ 'goal-create__option--selected': goalData.savingsMethod === 'auto' }"
+              @click="selectSavingsMethod('auto')"
+            >
+              Autosaving (transfer automatically on payday)
+            </button>
+            <button
+              class="goal-create__option"
+              :class="{ 'goal-create__option--selected': goalData.savingsMethod === 'manual' }"
+              @click="selectSavingsMethod('manual')"
+            >
+              Manual Transfers (You move money whenever you have a little extra)
+            </button>
+          </div>
+
+          <div class="goal-create__actions-row">
+            <button class="goal-create__btn goal-create__btn--secondary" @click="prevStep">
+              Back
+            </button>
+            <button
+              class="goal-create__btn"
+              :disabled="!goalData.savingsMethod"
+              @click="nextStep"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 6: Summary / Loading -->
+        <div v-else-if="currentStep === 6" key="step6" class="goal-create__step">
+          <div v-if="!isLoading" class="goal-create__summary">
             <h2 class="goal-create__step-title">You're almost there!</h2>
             <p class="goal-create__step-subtitle">Review your goal details before creating it.</p>
 
@@ -263,6 +315,10 @@ function goToDashboard() {
               <div class="goal-create__recap-item">
                 <span class="goal-create__recap-label">Target date</span>
                 <span class="goal-create__recap-value">{{ formattedTargetDate }}</span>
+              </div>
+              <div class="goal-create__recap-item">
+                <span class="goal-create__recap-label">Savings method</span>
+                <span class="goal-create__recap-value">{{ savingsMethodLabel }}</span>
               </div>
               <div class="goal-create__recap-highlight">
                 <span class="goal-create__recap-highlight-label">Required monthly savings</span>
@@ -288,8 +344,8 @@ function goToDashboard() {
           </div>
         </div>
 
-        <!-- Step 6: Success -->
-        <div v-else-if="currentStep === 6" key="step6" class="goal-create__step">
+        <!-- Step 7: Success -->
+        <div v-else-if="currentStep === 7" key="step7" class="goal-create__step">
           <div class="goal-create__success">
             <div class="goal-create__success-icon">🎉</div>
             <h2 class="goal-create__success-title">Goal created!</h2>
@@ -304,7 +360,7 @@ function goToDashboard() {
       </Transition>
     </div>
 
-    <!-- Back button for steps 2-5 -->
+    <!-- Back button for intermediate steps -->
     <div v-if="currentStep > 1 && currentStep < 6" class="goal-create__footer">
       <button class="goal-create__back" @click="prevStep">
         <span class="goal-create__back-arrow">‹</span>
@@ -480,6 +536,41 @@ function goToDashboard() {
 
 .goal-create__textarea {
   resize: none;
+}
+
+/* Option buttons (savings method) */
+.goal-create__options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.goal-create__option {
+  display: block;
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 14px;
+  border: none;
+  background: #f5f5f7;
+  color: #333;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1.4;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.12s ease;
+}
+
+.goal-create__option:active {
+  transform: scale(0.98);
+}
+
+.goal-create__option--selected {
+  background: #f2653a;
+  color: #fff;
+  font-weight: 600;
 }
 
 /* Amount field */

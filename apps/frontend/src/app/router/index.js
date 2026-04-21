@@ -3,6 +3,19 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
+    name: 'landing',
+    beforeEnter: () => {
+      const seen = localStorage.getItem('yuhlearn_onboarding_seen')
+      return seen ? { name: 'home' } : { name: 'onboarding' }
+    },
+  },
+  {
+    path: '/onboarding',
+    name: 'onboarding',
+    component: () => import('@/pages/onboarding/ui/OnboardingPage.vue'),
+  },
+  {
+    path: '/home',
     name: 'home',
     component: () => import('@/pages/home/ui/HomePage.vue'),
   },

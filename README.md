@@ -4,6 +4,7 @@ Application d'apprentissage financier pour Yuh. Format short-form (type TikTok/R
 
 ## Fonctionnalités
 
+- **Onboarding** : 3 slides de bienvenue affichées au premier lancement
 - **Feed vidéo vertical** : Scroll snap une vidéo à la fois, autoplay, contrôles tactiles (tap = son, long-press = pause)
 - **Quiz interactifs** : Questions à choix multiples avec correction immédiate
 - **Progression par étapes** : Système de déblocage séquentiel (vidéo 2 verrouillée tant que vidéo 1 non vue)
@@ -23,6 +24,7 @@ apps/frontend/src/
 │   ├── youtube-player/  # Lecteur vidéo Cloudinary
 │   └── question-card/   # Carte de question quiz
 ├── pages/            # Pages complètes
+│   ├── onboarding/   # Slides de bienvenue (premier lancement)
 │   ├── home/         # Liste des Firsts
 │   ├── first-detail/ # Grille de tuiles
 │   ├── player/       # Lecteur vidéo vertical
@@ -62,6 +64,15 @@ npm run dev
 ```
 
 L'application est accessible sur `http://localhost:5173`
+
+**Routes principales :**
+| Route | Description |
+|-------|-------------|
+| `/` | Redirige vers onboarding (1ère visite) ou home |
+| `/onboarding` | Slides de bienvenue |
+| `/home` | Liste des Firsts |
+| `/first/:id` | Détail d'un First |
+| `/first/:id/video` | Lecteur vidéo vertical |
 
 
 ## Données

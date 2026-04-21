@@ -1,0 +1,74 @@
+{
+  "first-budget": [
+    {
+      "id": "q1",
+      "question": "What is the main purpose of a budget?",
+      "answers": [
+        { "id": "a", "text": "To spend as much as possible" },
+        { "id": "b", "text": "To track and plan your money" },
+        { "id": "c", "text": "To avoid paying taxes" }
+      ],
+      "correct": "b"
+    },
+    {
+      "id": "q2",
+      "question": "In the 50/30/20 rule, what does the 50% cover?",
+      "answers": [
+        { "id": "a", "text": "Savings" },
+        { "id": "b", "text": "Wants" },
+        { "id": "c", "text": "Needs" }
+      ],
+      "correct": "c"
+    },
+    {
+      "id": "q3",
+      "question": "What percentage should go to savings in the 50/30/20 rule?",
+      "answers": [
+        { "id": "a", "text": "30%" },
+        { "id": "b", "text": "20%" },
+        { "id": "c", "text": "50%" }
+      ],
+      "correct": "b"
+    },
+    {
+      "id": "q4",
+      "question": "Which of these is a common budget trap?",
+      "answers": [
+        { "id": "a", "text": "Tracking every expense" },
+        { "id": "b", "text": "Forgetting subscriptions" },
+        { "id": "c", "text": "Saving before spending" }
+      ],
+      "correct": "b"
+    },
+    {
+      "id": "q5",
+      "question": "What should you do first when you receive your salary?",
+      "answers": [
+        { "id": "a", "text": "Buy something you want" },
+        { "id": "b", "text": "Pay yourself first (savings)" },
+        { "id": "c", "text": "Wait and see what's left" }
+      ],
+      "correct": "b"
+    },
+    {
+      "id": "q6",
+      "question": "A fixed expense is...",
+      "answers": [
+        { "id": "a", "text": "An expense that changes every month" },
+        { "id": "b", "text": "An expense that stays the same every month" },
+        { "id": "c", "text": "An expense you only pay once" }
+      ],
+      "correct": "b"
+    },
+    {
+      "id": "q7",
+      "question": "What is an emergency fund?",
+      "answers": [
+        { "id": "a", "text": "Money saved for unexpected expenses" },
+        { "id": "b", "text": "A credit card for emergencies" },
+        { "id": "c", "text": "Your monthly salary" }
+      ],
+      "correct": "a"
+    }
+  ]
+}

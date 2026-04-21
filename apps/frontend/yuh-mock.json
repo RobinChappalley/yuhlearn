@@ -1,0 +1,92 @@
+{
+  "pockets": [
+    {
+      "id": "pocket-bmw",
+      "name": "BMW",
+      "targetAmount": 10000,
+      "currentAmount": 3240,
+      "currency": "CHF",
+      "startDate": "2024-08-01",
+      "endDate": "2029-07-31"
+    }
+  ],
+
+
+"localStorage keys": 
+[
+  {
+    "Key": "yuhlearn_goals",
+    "Type": "Goal[]",
+    "Description": "User's active goals"
+  },
+  {
+    "Key": "yuhlearn_progress",
+    "Type": "Progress",
+    "Description": "Completion state per First and tile"
+  },
+  {
+    "Key": "yuhlearn_rewards",
+    "Type": "Reward[]",
+    "Description": "Unlocked boosts"
+  },
+  {
+    "Key": "yuhlearn_onboarding_done",
+    "Type": "boolean",
+    "Description": "Skip onboarding on reload"
+  }
+],
+
+"JS object shapes": {
+  "Goal": {
+    "id": "String",           
+    "pocketId": "String",     
+    "name": "String",
+    "targetAmount": "Number",
+    "currentAmount": "Number",
+    "currency": "String",
+    "startDate": "String",    
+    "endDate": "String",
+    "createdAt": "String"
+  },
+  "Progress": {
+    "firstId": "String",
+    "completedTiles": ["String"],   
+    "quizAnswers": {
+      "questionId": { "answerId": "String", "correct": "Boolean" }
+    },
+    "completed": "Boolean",
+    "completedAt": "String | null"
+  },
+  "Reward": {
+    "id": "String",
+    "firstId": "String",
+    "pocketId": "String",          
+    "boostPercent": "Number",
+    "durationDays": "Number",
+    "maxInterestChf": "Number",
+    "unlockedAt": "String",
+    "expiresAt": "String"
+  },
+
+  "firstId": "String",
+  "completedTiles": ["String"],   
+  "quizAnswers": {
+    "questionId": { "answerId": "String", "correct": "Boolean" }
+  },
+  "completed": "Boolean",
+  "completedAt": "String | null"
+},
+"Reward": {
+  "id": "String",
+  "firstId": "String",
+  "pocketId": "String",          
+  "boostPercent": "Number",
+  "durationDays": "Number",
+  "maxInterestChf": "Number",
+  "unlockedAt": "String",
+  "expiresAt": "String"
+}
+
+
+
+}

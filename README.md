@@ -35,6 +35,7 @@ apps/frontend/src/
 │   ├── first-detail/ # Grille de tuiles
 │   ├── player/       # Lecteur vidéo vertical
 │   ├── assessment/   # Big Three Quiz (placement test)
+│   ├── assessment-result/ # Résultat Big Three Quiz
 │   ├── personality-intro/ # Money Personality Quiz intro
 │   ├── personality-quiz/  # Money Personality Quiz (18 questions)
 │   ├── personality-result/ # Résultat Money Personality
@@ -83,6 +84,7 @@ L'application est accessible sur `http://localhost:5173`
 | `/home` | Liste des Firsts |
 | `/first/:id` | Détail d'un First |
 | `/assessment` | Big Three Quiz (placement test) |
+| `/assessment-result` | Résultat Big Three Quiz (score) |
 | `/personality-intro` | Money Personality Quiz intro |
 | `/personality-quiz` | Money Personality Quiz (18 questions Likert) |
 | `/personality-result` | Résultat Money Personality |

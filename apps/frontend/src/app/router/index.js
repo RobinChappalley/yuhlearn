@@ -35,6 +35,11 @@ const routes = [
     component: () => import('@/pages/assessment/ui/AssessmentPage.vue'),
   },
   {
+    path: '/assessment-result',
+    name: 'assessment-result',
+    component: () => import('@/pages/assessment-result/ui/AssessmentResultPage.vue'),
+  },
+  {
     path: '/personality-intro',
     name: 'personality-intro',
     component: () => import('@/pages/personality-intro/ui/PersonalityIntroPage.vue'),

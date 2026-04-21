@@ -68,5 +68,10 @@ export function useGoal() {
     return newGoal
   }
 
-  return { goals, daysLeft, progressPercent, createGoal }
+  function removeGoal(goalId) {
+    goals.value = goals.value.filter((g) => g.id !== goalId)
+    saveToStorage(goals.value)
+  }
+
+  return { goals, daysLeft, progressPercent, createGoal, removeGoal }
 }

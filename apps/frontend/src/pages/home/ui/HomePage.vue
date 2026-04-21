@@ -1,17 +1,37 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useGoal } from '@/entities/goal'
 import { useProgress } from '@/entities/progress'
 import { GoalCard } from '@/widgets/goal-card'
+import { GoalTabs } from '@/widgets/goal-tabs'
 import { FirstTile } from '@/widgets/first-tile'
 import firsts from '@/data/firsts.json'
 
 const router = useRouter()
-const { goals, daysLeft, progressPercent: goalPercent } = useGoal()
+const { goals, daysLeft, progressPercent: goalPercent, removeGoal } = useGoal()
 const { isFirstComplete, progressPercent: firstPercent } = useProgress()
 
-const primaryGoal = computed(() => goals.value[0] ?? null)
+const activeGoalId = ref(goals.value[0]?.id ?? null)
+
+const activeGoal = computed(
+  () => goals.value.find((g) => g.id === activeGoalId.value) ?? goals.value[0] ?? null
+)
+
+// If active goal disappears (closed) or goals list changes, keep a valid selection
+watch(goals, (list) => {
+  if (!list.find((g) => g.id === activeGoalId.value)) {
+    activeGoalId.value = list[0]?.id ?? null
+  }
+}, { deep: true })
+
+function selectGoal(id) {
+  activeGoalId.value = id
+}
+
+function closeGoal(id) {
+  removeGoal(id)
+}
 
 const levels = ['beginner', 'intermediate', 'advanced']
 
@@ -48,21 +68,20 @@ function createGoal() {
     </header>
 
     <main class="home__content">
-      <GoalCard
-        v-if="primaryGoal"
-        :goal="primaryGoal"
-        :days-left="daysLeft(primaryGoal)"
-        :progress-percent="goalPercent(primaryGoal)"
-      />
-
-      <button
-        v-if="primaryGoal"
-        class="home__add-goal"
-        @click="createGoal"
-      >
-        <span class="home__add-goal-icon">+</span>
-        <span class="home__add-goal-text">Nouvel objectif</span>
-      </button>
+      <div v-if="activeGoal" class="home__goals">
+        <GoalTabs
+          :goals="goals"
+          :active-id="activeGoalId"
+          @select="selectGoal"
+          @close="closeGoal"
+          @add="createGoal"
+        />
+        <GoalCard
+          :goal="activeGoal"
+          :days-left="daysLeft(activeGoal)"
+          :progress-percent="goalPercent(activeGoal)"
+        />
+      </div>
 
       <div
         v-else
@@ -70,9 +89,9 @@ function createGoal() {
         @click="createGoal"
       >
         <div class="home__create-goal-icon">🎯</div>
-        <h3 class="home__create-goal-title">Crée ton premier objectif</h3>
-        <p class="home__create-goal-desc">Fixe-toi un but d'épargne et atteins-le étape par étape.</p>
-        <button class="home__create-goal-btn">Commencer</button>
+        <h3 class="home__create-goal-title">Create your first goal</h3>
+        <p class="home__create-goal-desc">Set a savings target and reach it step by step.</p>
+        <button class="home__create-goal-btn">Get started</button>
       </div>
 
       <template v-for="level in levels" :key="level">
@@ -155,41 +174,9 @@ function createGoal() {
   gap: var(--space-4);
 }
 
-.home__add-goal {
+.home__goals {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  background: var(--color-swiss-white);
-  border: 2px dashed var(--color-swiss-orange-40);
-  border-radius: 16px;
-  padding: var(--space-4) var(--space-5);
-  cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
-}
-
-.home__add-goal:active {
-  background: var(--color-swiss-orange-20);
-  border-color: var(--color-swiss-orange);
-}
-
-.home__add-goal-icon {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-swiss-orange);
-  color: var(--color-swiss-white);
-  border-radius: 50%;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.home__add-goal-text {
-  font-size: var(--font-size-body-big);
-  font-weight: 600;
-  color: var(--color-swiss-orange);
+  flex-direction: column;
 }
 
 .home__create-goal-card {

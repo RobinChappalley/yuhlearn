@@ -39,11 +39,11 @@ apps/frontend/src/
 │   ├── personality-intro/ # Money Personality Quiz intro
 │   ├── personality-quiz/  # Money Personality Quiz (18 questions)
 │   ├── personality-result/ # Résultat Money Personality
-│   ├── firsts-intro/  # Phase 3 : Intro aux 5 Firsts
-│   ├── firsts-live/   # Phase 3 : Confirmation 5 Firsts
-│   ├── setup-dashboard/ # Phase 3 : Dashboard de setup
-│   ├── setup-checkpoint/ # Phase 3 : Checkpoint de transition
-│   ├── setup-complete/  # Phase 3 : Setup complet
+│   ├── budget-intro/     # Phase 3 : Intro Budget Check
+│   ├── budget-income/    # Phase 3 : Saisie du revenu mensuel
+│   ├── budget-essentials/ # Phase 3 : Dépenses essentielles (must-haves)
+│   ├── budget-treats/    # Phase 3 : Dépenses plaisir (nice-to-haves)
+│   ├── budget-result/    # Phase 3 : Résultat (Surplus/Balance)
 │   ├── quiz/         # Quiz post-vidéo (validation)
 │   └── reward/       # Écran de récompense
 ├── shared/           # Utilitaires partagés
@@ -93,11 +93,11 @@ L'application est accessible sur `http://localhost:5173`
 | `/personality-intro` | Money Personality Quiz intro |
 | `/personality-quiz` | Money Personality Quiz (18 questions Likert) |
 | `/personality-result` | Résultat Money Personality |
-| `/firsts-intro` | Phase 3 : Intro aux 5 Firsts |
-| `/firsts-live` | Phase 3 : Confirmation 5 Firsts |
-| `/setup-dashboard` | Phase 3 : Dashboard de setup |
-| `/setup-checkpoint` | Phase 3 : Checkpoint de transition |
-| `/setup-complete` | Phase 3 : Setup complet (fin onboarding) |
+| `/budget-intro` | Phase 3 : Intro Budget Check |
+| `/budget-income` | Phase 3 : Saisie du revenu mensuel |
+| `/budget-essentials` | Phase 3 : Dépenses essentielles |
+| `/budget-treats` | Phase 3 : Dépenses plaisir |
+| `/budget-result` | Phase 3 : Résultat Budget Check |
 | `/first/:id/video` | Lecteur vidéo vertical |
 
 

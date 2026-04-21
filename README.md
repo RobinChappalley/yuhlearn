@@ -63,17 +63,6 @@ npm run dev
 
 L'application est accessible sur `http://localhost:5173`
 
-### Avec Docker
-
-```bash
-# Lancer tout le projet
-docker-compose up
-
-# Ou uniquement le frontend
-cd apps/frontend
-docker build -t yuhlearn-frontend .
-docker run -p 5173:5173 yuhlearn-frontend
-```
 
 ## Données
 

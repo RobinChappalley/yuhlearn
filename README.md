@@ -1,4 +1,4 @@
-# Yuhlearn - Groupe NASDAS
+# Yuhlearn - Groupe NASDAQ
 
 Financial learning application for Yuh. Short-form format (TikTok/Reels style) with vertical videos,
 interactive quizzes and a progression system.
